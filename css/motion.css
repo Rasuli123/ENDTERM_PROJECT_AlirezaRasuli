@@ -1,0 +1,701 @@
+/* Small, purposeful motions. Pause control and system preferences stop them all. */
+
+:root {
+  --motion-ease: cubic-bezier(0.2, 0.75, 0.25, 1);
+}
+
+.site-header {
+  isolation: isolate;
+}
+
+.site-header::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #b6e6bc, #ddc892);
+  transform: scaleX(var(--reading-progress, 0));
+  transform-origin: left;
+  pointer-events: none;
+  box-shadow: 0 0 12px #b6e6bc55;
+}
+
+.page-nav {
+  position: relative;
+  isolation: isolate;
+  gap: 7px;
+}
+
+.page-nav::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: var(--nav-width, 0px);
+  height: var(--nav-height, 0px);
+  transform: translate(var(--nav-x, 0px), var(--nav-y, 0px));
+  opacity: var(--nav-visible, 0);
+  border: 1px solid #b6e6bc50;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #b6e6bc15, #b6e6bc03);
+  box-shadow:
+    0 5px 22px #0003,
+    inset 0 1px #ffffff0c;
+  transition:
+    transform 0.32s var(--motion-ease),
+    width 0.32s var(--motion-ease),
+    height 0.32s var(--motion-ease),
+    opacity 0.2s;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page-nav > li {
+  position: relative;
+}
+
+.page-nav-link {
+  overflow: hidden;
+  isolation: isolate;
+  padding: 12px 9px;
+  border: 1px solid transparent;
+  border-radius: 9px;
+  transform-origin: center;
+  transition:
+    transform 0.3s var(--motion-ease),
+    background 0.3s,
+    border-color 0.3s,
+    box-shadow 0.3s,
+    color 0.3s;
+}
+
+.page-nav-link::before {
+  content: "";
+  position: absolute;
+  inset: -80% -60%;
+  background: linear-gradient(
+    110deg,
+    transparent 35%,
+    #b6e6bc22 48%,
+    transparent 61%
+  );
+  transform: translateX(-80%) rotate(10deg);
+  transition: transform 0.6s var(--motion-ease);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.page-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: 5px;
+  height: 2px;
+  background: var(--mint);
+  border-radius: 2px;
+  opacity: 0;
+  transform: scaleX(0);
+  transition:
+    transform 0.3s var(--motion-ease),
+    opacity 0.3s;
+}
+
+.page-nav-link.active::after,
+.page-nav-link:focus-visible::after,
+.page-nav-link:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
+.page-nav-link:focus-visible {
+  transform: translateY(-3px) scale(1.07);
+  background: #25292c;
+  border-color: #b6e6bc88;
+  box-shadow:
+    0 8px 24px #0004,
+    0 0 18px #b6e6bc12;
+  z-index: 3;
+}
+
+.page-nav-link:focus-visible::before,
+.page-nav-link:hover::before {
+  transform: translateX(80%) rotate(10deg);
+}
+
+.page-nav .page-nav-signup {
+  margin-left: 0;
+}
+
+.page-nav-signup::after {
+  background: #10251a;
+}
+
+.page-nav .page-nav-signup:focus-visible {
+  color: #10251a;
+  background: var(--mint-bright);
+}
+
+.brand-mark {
+  transition:
+    transform 0.4s var(--motion-ease),
+    box-shadow 0.4s,
+    border-color 0.4s;
+  position: relative;
+}
+
+.brand-mark::after {
+  content: "";
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 10px #ddc89288;
+  animation: brand-glimmer 3.5s ease-in-out infinite;
+}
+
+.navbar-brand:hover .brand-mark,
+.navbar-brand:focus-visible .brand-mark {
+  transform: rotate(-8deg) scale(1.1);
+  border-color: var(--mint);
+  box-shadow: 0 0 24px #b6e6bc25;
+}
+
+/* The four cards also work as a useful, keyboard-accessible study-cycle selector. */
+
+.focus-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 18px;
+  background: transparent;
+  align-items: stretch;
+}
+
+.focus-board .focus-step {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 22px;
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  min-height: 258px;
+  margin: 0;
+  padding: 26px;
+  border: 1px solid #b6e6bc20;
+  border-radius: 20px;
+  background:
+    radial-gradient(
+      circle at var(--pointer-x, 50%) var(--pointer-y, 0%),
+      #b6e6bc0d,
+      transparent 65%
+    ),
+    #17191c;
+  text-align: left;
+  color: var(--text-main);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition:
+    transform 0.35s var(--motion-ease),
+    border-color 0.35s,
+    box-shadow 0.35s,
+    background 0.35s;
+}
+
+.focus-step::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 24px;
+  right: 24px;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, var(--mint), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--motion-ease);
+}
+
+.focus-board .focus-index {
+  width: 47px;
+  height: 47px;
+  flex: 0 0 47px;
+  display: grid;
+  place-items: center;
+  position: relative;
+  margin: 0;
+  border: 1px solid #b6e6bc4d;
+  border-radius: 50%;
+  background: #b6e6bc10;
+  color: var(--mint);
+  font:
+    600 15px/1 "Segoe UI",
+    Arial,
+    sans-serif;
+  transition:
+    background 0.35s,
+    color 0.35s,
+    transform 0.35s,
+    box-shadow 0.35s;
+}
+
+.focus-index::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border: 1px dashed #b6e6bc55;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.focus-copy {
+  display: block;
+}
+
+.focus-copy strong {
+  display: block;
+  font:
+    500 26px/1.2 Georgia,
+    serif;
+  margin-bottom: 13px;
+  color: var(--text-main);
+  transition: color 0.3s;
+}
+
+.focus-copy .muted-text {
+  display: block;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.focus-step-arrow {
+  position: absolute;
+  top: 27px;
+  right: 25px;
+  color: var(--mint);
+  font-size: 20px;
+  opacity: 0.25;
+  transition:
+    transform 0.3s,
+    opacity 0.3s;
+}
+
+.focus-step[aria-pressed="true"] {
+  border-color: #b6e6bc80;
+  background:
+    radial-gradient(circle at 0 0, #b6e6bc18, transparent 75%), #1c2023;
+  box-shadow: 0 12px 35px #0003;
+}
+
+.focus-step[aria-pressed="true"]::after,
+.focus-step:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.focus-step[aria-pressed="true"] .focus-index {
+  background: var(--mint);
+  color: #112b20;
+  box-shadow: 0 0 24px #b6e6bc24;
+}
+
+.focus-step[aria-pressed="true"] .focus-index::before {
+  opacity: 1;
+  animation: index-orbit 16s linear infinite;
+}
+
+.focus-step[aria-pressed="true"] .focus-copy strong {
+  color: var(--mint);
+}
+
+.focus-step[aria-pressed="true"] .focus-step-arrow,
+.focus-step:focus-visible .focus-step-arrow {
+  opacity: 1;
+  transform: translate(3px, -3px);
+}
+
+.focus-step:focus-visible {
+  transform: translateY(-5px);
+  border-color: var(--mint);
+}
+
+.focus-step-detail {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-top: 22px;
+  padding: 20px 24px;
+  border: 1px solid #b6e6bc24;
+  border-radius: 13px;
+  background: linear-gradient(100deg, #b6e6bc0b, transparent);
+}
+
+.focus-detail-kicker {
+  flex: 0 0 125px;
+  color: var(--mint);
+  font:
+    600 10px/1.6 "Segoe UI",
+    Arial,
+    sans-serif;
+  letter-spacing: 0.15em;
+}
+
+.focus-step-detail p {
+  margin: 0;
+  color: var(--text-soft);
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+/* Feedback on cards, buttons, photographs and arriving content. */
+
+.feature-card,
+.pathway-card,
+.library-card,
+.plan-stat {
+  transition:
+    transform 0.35s var(--motion-ease),
+    border-color 0.35s,
+    box-shadow 0.35s;
+}
+
+.library-card .resource-photo,
+.gallery-tile img,
+.photo-story img {
+  transition:
+    transform 0.65s var(--motion-ease),
+    filter 0.65s;
+}
+
+.btn,
+.icon-button,
+.save-button,
+.flat-signout {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    transform 0.25s var(--motion-ease),
+    background 0.25s,
+    border-color 0.25s,
+    box-shadow 0.25s;
+}
+
+.btn:active,
+.icon-button:active,
+.save-button:active,
+.page-nav-link:active {
+  transform: scale(0.96);
+}
+
+.click-wave {
+  position: absolute;
+  border-radius: 50%;
+  background: #d1f3cb40;
+  transform: translate(-50%, -50%) scale(0);
+  pointer-events: none;
+  animation: click-wave 0.65s ease-out forwards;
+  z-index: -1;
+}
+
+.motion-arrival.is-revealed {
+  animation: motion-arrival 0.7s var(--motion-ease) both;
+  animation-delay: var(--arrival-delay, 0ms);
+}
+
+.motion-toggle {
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  z-index: 1040;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #b6e6bc40;
+  border-radius: 30px;
+  padding: 9px 13px;
+  background: #17191ced;
+  color: var(--text-soft);
+  font:
+    500 10px/1.4 "Segoe UI",
+    Arial,
+    sans-serif;
+  box-shadow: 0 5px 20px #0004;
+  backdrop-filter: blur(10px);
+}
+
+.motion-toggle .motion-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--mint);
+  box-shadow: 0 0 9px #b6e6bc70;
+}
+
+.motion-toggle[aria-pressed="false"] .motion-dot {
+  background: #81928d;
+  box-shadow: none;
+}
+
+.motion-toggle:hover {
+  color: var(--mint);
+  border-color: var(--mint);
+}
+
+.motion-toggle:disabled {
+  opacity: 0.7;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .page-nav-link:hover {
+    transform: translateY(-4px) scale(1.1);
+    background: #25292c;
+    border-color: #b6e6bc88;
+    box-shadow:
+      0 10px 26px #0005,
+      0 0 20px #b6e6bc16;
+    z-index: 3;
+    color: var(--mint);
+  }
+
+  .page-nav .page-nav-signup:hover {
+    color: #10251a;
+    background: var(--mint-bright);
+  }
+
+  .focus-board .focus-step:hover {
+    transform: perspective(900px) translateY(-8px) rotateX(var(--tilt-x, 0deg))
+      rotateY(var(--tilt-y, 0deg));
+    border-color: #b6e6bc80;
+    box-shadow: 0 20px 45px #0005;
+  }
+
+  .focus-step:hover::after {
+    transform: scaleX(1);
+  }
+
+  .focus-step:hover .focus-index {
+    transform: scale(1.13) rotate(-7deg);
+  }
+
+  .focus-step:hover .focus-step-arrow {
+    transform: translate(4px, -4px);
+    opacity: 1;
+  }
+
+  .feature-card:hover,
+  .pathway-card:hover,
+  .library-card:hover {
+    transform: translateY(-7px);
+    border-color: #b6e6bc65;
+    box-shadow: 0 18px 40px #0004;
+  }
+
+  .plan-stat:hover {
+    transform: translateY(-4px) scale(1.015);
+    border-color: #b6e6bc65;
+  }
+
+  .library-card:hover .resource-photo,
+  .gallery-tile:hover img,
+  .photo-story:hover img {
+    transform: scale(1.045);
+    filter: saturate(1.1);
+  }
+
+  .btn:hover:not(:disabled),
+  .icon-button:hover:not(:disabled),
+  .save-button:hover:not(:disabled) {
+    transform: translateY(-3px) scale(1.025);
+    box-shadow: 0 8px 22px #0003;
+  }
+}
+
+@keyframes motion-arrival {
+  from {
+    opacity: 0;
+    translate: 0 20px;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@keyframes brand-glimmer {
+  0%,
+  100% {
+    box-shadow: 0 0 4px #ddc89255;
+  }
+  50% {
+    box-shadow: 0 0 12px #ddc892aa;
+  }
+}
+
+@keyframes index-orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes click-wave {
+  to {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 1199px) {
+  .focus-board {
+    gap: 14px;
+  }
+  .focus-board .focus-step {
+    padding: 22px;
+    min-height: 270px;
+  }
+}
+
+@media (max-width: 991px) {
+  .focus-board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .focus-board .focus-step {
+    min-height: 225px;
+  }
+}
+
+@media (max-width: 767px) {
+  .page-nav {
+    gap: 8px;
+  }
+  .page-nav-link {
+    padding: 11px 4px;
+  }
+  .focus-step-detail {
+    display: block;
+  }
+  .focus-detail-kicker {
+    display: block;
+    margin-bottom: 8px;
+  }
+  .motion-toggle {
+    bottom: 12px;
+    left: 12px;
+    font-size: 10px;
+    padding: 8px 11px;
+  }
+  .site-footer {
+    padding-bottom: 45px;
+  }
+}
+
+@media (max-width: 575px) {
+  .focus-board {
+    grid-template-columns: 1fr;
+    gap: 13px;
+  }
+  .focus-board .focus-step {
+    display: grid;
+    grid-template-columns: 45px minmax(0, 1fr);
+    gap: 20px;
+    min-height: 0;
+    padding: 22px 38px 22px 22px;
+    border-radius: 16px;
+  }
+  .focus-copy strong {
+    font-size: 23px;
+    margin-bottom: 8px;
+  }
+  .focus-step-arrow {
+    top: 22px;
+    right: 15px;
+    font-size: 16px;
+  }
+  .focus-step-detail {
+    padding: 18px 20px;
+  }
+}
+
+html[data-motion="off"] *,
+html[data-motion="off"] *::before,
+html[data-motion="off"] *::after {
+  animation: none !important;
+  transition: none !important;
+  scroll-behavior: auto !important;
+}
+
+html[data-motion="off"] .motion-arrival {
+  opacity: 1 !important;
+  translate: none !important;
+}
+
+html[data-motion="off"]
+  :is(
+    .page-nav-link,
+    .brand-mark,
+    .focus-step,
+    .focus-index,
+    .focus-step-arrow,
+    .feature-card,
+    .pathway-card,
+    .library-card,
+    .plan-stat,
+    .btn,
+    .icon-button,
+    .save-button,
+    .resource-photo,
+    .gallery-tile img,
+    .photo-story img
+  ) {
+  transform: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+
+  .motion-arrival {
+    opacity: 1 !important;
+    translate: none !important;
+  }
+
+  :is(
+    .page-nav-link,
+    .brand-mark,
+    .focus-step,
+    .focus-index,
+    .focus-step-arrow,
+    .feature-card,
+    .pathway-card,
+    .library-card,
+    .plan-stat,
+    .btn,
+    .icon-button,
+    .save-button,
+    .resource-photo,
+    .gallery-tile img,
+    .photo-story img
+  ) {
+    transform: none !important;
+  }
+}
+
+@media print {
+  .motion-toggle {
+    display: none;
+  }
+  .motion-arrival {
+    opacity: 1 !important;
+    translate: none !important;
+  }
+}
