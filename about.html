@@ -1,468 +1,380 @@
-<!DOCTYPE html>
+<!doctype html>
+
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      content="Learn the purpose, story and principles behind Rasuli's Knowledge Hub."
+      name="description"
+    />
+    <title>Rasuli's Knowledge Hub | About</title>
 
-<head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="Learn the purpose, story and principles behind Rasuli's Knowledge Hub.">
-
-    <title>
-        Rasuli's Knowledge Hub | About
-    </title>
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-          rel="stylesheet">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-
-    <link rel="stylesheet"
-          href="css/style.css">
-
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-
-
-<body>
-
-
-<a class="skip-link"
-   href="#main-content">
-    Skip to main content
-</a>
-
-
-<header class="site-header">
-
-    <nav class="navbar navbar-expand-lg site-nav"
-         aria-label="Main navigation">
-
+    <link href="vendor/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/style.css" rel="stylesheet" />
+    <link
+      id="hub-favicon"
+      rel="icon"
+      type="image/x-icon"
+      href="data:image/x-icon;base64,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"
+    />
+    <link href="css/endterm.css" rel="stylesheet" />
+    <meta name="theme-color" content="#090a0b" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="preconnect" href="https://images.pexels.com" />
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="css/midnight.css" />
+    <link rel="stylesheet" href="css/motion.css" />
+    <link rel="stylesheet" href="css/cinematic.css" />
+  </head>
+  <body data-page="about">
+    <a class="skip-link" href="#main-content"> Skip to main content </a>
+    <header class="site-header flat-header">
+      <nav class="site-nav flat-nav" aria-label="Main navigation">
         <div class="container">
-
-            <a class="navbar-brand"
-               href="index.html">
-
-                <span class="brand-mark">
-                    RK
-                </span>
-
-                Rasuli's Knowledge Hub
-
-            </a>
-
-
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#mainNav"
-                aria-controls="mainNav"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
-
-                <span class="navbar-toggler-icon"></span>
-
+          <div class="brand-row">
+            <a class="navbar-brand" href="index.html"
+              ><span class="brand-mark" aria-hidden="true"></span
+              ><span class="brand-copy"
+                >Rasuli’s<span>KNOWLEDGE HUB</span></span
+              ></a
+            ><button
+              class="flat-signout"
+              type="button"
+              data-logout
+              data-member-only
+              hidden
+            >
+              Sign out
             </button>
-
-
-            <div class="collapse navbar-collapse"
-                 id="mainNav">
-
-                <ul class="navbar-nav ms-auto align-items-lg-center">
-
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="index.html">
-                            Home
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active"
-                           aria-current="page"
-                           href="about.html">
-                            About
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="subjects.html">
-                            Subjects
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="resources.html">
-                            Resources
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="study-plan.html">
-                            Study Plan
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link"
-                           href="contact.html">
-                            Membership
-                        </a>
-                    </li>
-
-                </ul>
-
-            </div>
-
+          </div>
+          <ul class="page-nav" id="mainNav">
+            <li><a class="page-nav-link" href="index.html">Home</a></li>
+            <li>
+              <a
+                class="page-nav-link active"
+                href="about.html"
+                aria-current="page"
+                >About</a
+              >
+            </li>
+            <li><a class="page-nav-link" href="subjects.html">Subjects</a></li>
+            <li>
+              <a class="page-nav-link" href="resources.html">Resources</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="study-plan.html">Study plan</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="dashboard.html">Dashboard</a>
+            </li>
+            <li><a class="page-nav-link" href="login.html">Log in</a></li>
+            <li>
+              <a class="page-nav-link page-nav-signup" href="contact.html"
+                >Sign up</a
+              >
+            </li>
+          </ul>
         </div>
-
-    </nav>
-
-</header>
-
-
-<main id="main-content"
-      class="page-shell">
-
-
-    <section class="page-hero">
-
-        <div class="container">
-
-            <p class="eyebrow">
-                About the hub
-            </p>
-
-            <h1>
-                A simple idea: make learning easier to organize.
-            </h1>
-
-            <p>
-                Rasuli's Knowledge Hub brings different subjects,
-                reference material and study routines into one place.
-                It was created for students who want to spend less
-                time searching and more time understanding.
-                The goal is to keep learning structured,
-                practical and easy to continue.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <section class="section-pad">
-
-        <div class="container">
-
-            <div class="row g-5 align-items-start">
-
-
-                <div class="col-12 col-lg-6">
-
-                    <figure class="founder-figure">
-
-                        <img
-                            src="images/founder.jpg"
-                            alt="Founder Alireza Rasuli presenting the knowledge hub concept">
-
-                        <figcaption>
-                            Alireza Rasuli, creator of
-                            Rasuli's Knowledge Hub.
-                        </figcaption>
-
-                    </figure>
-
-                </div>
-
-
-                <div class="col-12 col-lg-6">
-
-                    <p class="eyebrow">
-                        Key milestones
-                    </p>
-
-                    <h2>
-                        How the idea developed
-                    </h2>
-
-
-                    <ol class="timeline-list">
-
-
-                        <li>
-
-                            <span class="timeline-year">
-                                2020
-                            </span>
-
-                            <span>
-                                The first idea was to create an organized
-                                digital index of academic material.
-                            </span>
-
-                        </li>
-
-
-                        <li>
-
-                            <span class="timeline-year">
-                                2022
-                            </span>
-
-                            <span>
-                                The concept expanded to connect books,
-                                notes and online learning resources.
-                            </span>
-
-                        </li>
-
-
-                        <li>
-
-                            <span class="timeline-year">
-                                2024
-                            </span>
-
-                            <span>
-                                Programming and mathematics became the
-                                first structured learning categories.
-                            </span>
-
-                        </li>
-
-
-                        <li>
-
-                            <span class="timeline-year">
-                                2026
-                            </span>
-
-                            <span>
-                                The hub expanded into a broader learning
-                                space with subjects, resources and
-                                planning tools.
-                            </span>
-
-                        </li>
-
-
-                    </ol>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="section-pad-sm">
-
-        <div class="container">
-
-            <div class="row g-4">
-
-
-                <div class="col-12 col-lg-5">
-
-                    <p class="eyebrow">
-                        Core principles
-                    </p>
-
-                    <h2>
-                        Built around clarity, not clutter.
-                    </h2>
-
-
-                    <ul class="mini-list">
-
-                        <li>
-                            <strong>Structure first:</strong>
-                            every subject should have a clear path.
-                        </li>
-
-                        <li>
-                            <strong>Useful resources:</strong>
-                            material should support a real learning goal.
-                        </li>
-
-                        <li>
-                            <strong>Steady progress:</strong>
-                            small, repeatable study sessions beat
-                            random bursts of effort.
-                        </li>
-
-                        <li>
-                            <strong>Connected learning:</strong>
-                            different fields can strengthen each other.
-                        </li>
-
-                    </ul>
-
-                </div>
-
-
-                <div class="col-12 col-lg-7">
-
-                    <blockquote class="quote-panel">
-
-                        “A good learning system does not give you
-                        more information. It helps you know what
-                        to do with it.”
-
-                    </blockquote>
-
-                    <p class="quote-source">
-                        — Rasuli's Knowledge Hub
-                    </p>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <section class="section-pad">
-
-        <div class="container">
-
-            <div class="row g-4 align-items-start">
-
-
-                <div class="col-12 col-lg-7">
-
-                    <p class="eyebrow">
-                        Learning inspiration
-                    </p>
-
-                    <h2>
-                        Explore learning beyond the page.
-                    </h2>
-
-                    <p class="section-lead">
-                        A strong study environment can make it
-                        easier to focus, stay curious and keep a
-                        long-term learning habit.
-                    </p>
-
-
-                    <iframe
-                        class="media-frame"
-                        src="https://www.youtube.com/embed/QmlyLWXIMzI"
-                        title="Campus virtual tour and learning environment"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        allowfullscreen>
-                    </iframe>
-
-                </div>
-
-
-                <div class="col-12 col-lg-5">
-
-                    <article class="surface-card p-4">
-
-                        <h2 class="h4">
-                            Go deeper with research
-                        </h2>
-
-                        <p class="muted-text">
-                            When a topic becomes important,
-                            move beyond summaries and look for
-                            academic papers, books and original sources.
-                        </p>
-
-                        <a
-                            class="btn btn-outline-mint"
-                            href="https://scholar.google.com/"
-                            target="_blank"
-                            rel="noopener">
-
-                            Explore Google Scholar
-
-                        </a>
-
-                    </article>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-</main>
-
-
-<footer class="site-footer">
-
-    <div class="container footer-grid">
-
-        <div>
-
-            <h2>
-                Rasuli's Knowledge Hub
-            </h2>
-
-            <p class="muted-text mb-0">
-                A learning space for organized subjects,
-                useful resources and practical study habits.
-            </p>
-
-        </div>
-
-
-        
-
-
-        <div>
-
-            <h3>
-                Keep learning
-            </h3>
-
-            <p class="muted-text">
-                Choose a subject, find the right material and turn
-                it into a realistic study routine.
-            </p>
-
-        </div>
-
+      </nav>
+    </header>
+    <div class="storage-warning" id="storage-warning" role="status" hidden>
+      <div class="container" data-storage-message></div>
     </div>
+    <noscript
+      ><div class="storage-warning">
+        Enable JavaScript to use accounts, filters and the planner. The original
+        pages remain available below.
+      </div></noscript
+    >
+    <main class="page-shell" id="main-content">
+      <section class="page-hero about-hero">
+        <div class="container">
+          <p class="eyebrow">About the hub</p>
+          <h1>A simple idea: make learning easier to organize.</h1>
+          <p>
+            Rasuli's Knowledge Hub brings different subjects, reference material
+            and study routines into one place. It was created for students who
+            want to spend less time searching and more time understanding. The
+            goal is to keep learning structured, practical and easy to continue.
+          </p>
+        </div>
+      </section>
+      <section class="section-pad">
+        <div class="container">
+          <div class="row g-5 align-items-start">
+            <div class="col-12 col-lg-6">
+              <figure class="founder-figure">
+                <img
+                  alt="Library shelves that inspire the Knowledge Hub"
+                  decoding="async"
+                  loading="lazy"
+                  src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+                />
+                <figcaption>
+                  A space for ideas. Stock library photography; project created
+                  by Alireza Rasuli.
+                </figcaption>
+              </figure>
+            </div>
+            <div class="col-12 col-lg-6">
+              <p class="eyebrow">Key milestones</p>
+              <h2>How the idea developed</h2>
+              <ol class="timeline-list">
+                <li>
+                  <span class="timeline-year"> 2020 </span>
+                  <span>
+                    The first idea was to create an organized digital index of
+                    academic material.
+                  </span>
+                </li>
+                <li>
+                  <span class="timeline-year"> 2022 </span>
+                  <span>
+                    The concept expanded to connect books, notes and online
+                    learning resources.
+                  </span>
+                </li>
+                <li>
+                  <span class="timeline-year"> 2024 </span>
+                  <span>
+                    Programming and mathematics became the first structured
+                    learning categories.
+                  </span>
+                </li>
+                <li>
+                  <span class="timeline-year"> 2026 </span>
+                  <span>
+                    The hub expanded into a broader learning space with
+                    subjects, resources and planning tools.
+                  </span>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-pad-sm">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-12 col-lg-5">
+              <p class="eyebrow">Core principles</p>
+              <h2>Built around clarity, not clutter.</h2>
+              <ul class="mini-list">
+                <li>
+                  <strong>Structure first:</strong>
+                  every subject should have a clear path.
+                </li>
+                <li>
+                  <strong>Useful resources:</strong>
+                  material should support a real learning goal.
+                </li>
+                <li>
+                  <strong>Steady progress:</strong>
+                  small, repeatable study sessions beat random bursts of effort.
+                </li>
+                <li>
+                  <strong>Connected learning:</strong>
+                  different fields can strengthen each other.
+                </li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg-7">
+              <blockquote class="quote-panel">
+                “A good learning system does not give you more information. It
+                helps you know what to do with it.”
+              </blockquote>
+              <p class="quote-source">— Rasuli's Knowledge Hub</p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-pad">
+        <div class="container">
+          <div class="row g-4 align-items-start">
+            <div class="col-12 col-lg-7">
+              <p class="eyebrow">Learning inspiration</p>
+              <h2>Explore learning beyond the page.</h2>
+              <p class="section-lead">
+                A strong study environment can make it easier to focus, stay
+                curious and keep a long-term learning habit.
+              </p>
+              <div class="photo-story">
+                <img
+                  alt="Students discussing their work in a library"
+                  decoding="async"
+                  loading="lazy"
+                  src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
+                />
+                <h3>Ideas grow in good company.</h3>
+                <p class="muted-text mb-0">
+                  Use your reading time to ask better questions, then share what
+                  you can explain in your own words.
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-lg-5">
+              <article class="surface-card p-4">
+                <h2 class="h4">Go deeper with research</h2>
+                <p class="muted-text">
+                  When a topic becomes important, move beyond summaries and look
+                  for academic papers, books and original sources.
+                </p>
+                <a
+                  class="btn btn-outline-mint"
+                  href="https://scholar.google.com/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  Explore Google Scholar
+                </a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section-pad-sm">
+        <div class="container">
+          <p class="eyebrow">Learning, in pictures</p>
+          <h2>Find your space to focus.</h2>
+          <p class="section-lead">
+            Open a photo to explore the gallery. Use the arrow keys to move
+            between images.
+          </p>
+          <div class="photo-gallery">
+            <button
+              aria-label="Enlarge photograph: Make room for shared ideas"
+              class="gallery-tile"
+              data-gallery-caption="Make room for shared ideas"
+              data-gallery-src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
+              type="button"
+            >
+              <img
+                alt="Make room for shared ideas"
+                decoding="async"
+                loading="lazy"
+                src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
+              /><span>Make room for shared ideas</span></button
+            ><button
+              aria-label="Enlarge photograph: Find a quiet place to read"
+              class="gallery-tile"
+              data-gallery-caption="Find a quiet place to read"
+              data-gallery-src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+              type="button"
+            >
+              <img
+                alt="Find a quiet place to read"
+                decoding="async"
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+              /><span>Find a quiet place to read</span></button
+            ><button
+              aria-label="Enlarge photograph: Follow a better question"
+              class="gallery-tile"
+              data-gallery-caption="Follow a better question"
+              data-gallery-src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
+              type="button"
+            >
+              <img
+                alt="Follow a better question"
+                decoding="async"
+                loading="lazy"
+                src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
+              /><span>Follow a better question</span>
+            </button>
+          </div>
+          <dialog
+            aria-label="Learning environment photo gallery"
+            class="gallery-dialog"
+            id="gallery-dialog"
+          >
+            <div class="dialog-close">
+              <button class="icon-button" data-close-dialog="" type="button">
+                Close gallery ×
+              </button>
+            </div>
+            <figure>
+              <img
+                alt="Library interior"
+                decoding="async"
+                loading="lazy"
+                src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
+              />
+              <figcaption></figcaption>
+            </figure>
+            <div class="gallery-controls">
+              <button
+                class="btn btn-outline-mint btn-sm"
+                data-gallery-prev=""
+                type="button"
+              >
+                ← Previous</button
+              ><button
+                class="btn btn-outline-mint btn-sm"
+                data-gallery-next=""
+                type="button"
+              >
+                Next →
+              </button>
+            </div>
+          </dialog>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2>Rasuli’s Knowledge Hub</h2>
+          <p class="muted-text">
+            A little curiosity. A clear direction.<br />A better way to keep
+            learning.
+          </p>
+        </div>
+        <div>
+          <h2 class="h5">Find your next step</h2>
+          <div class="footer-links">
+            <a href="subjects.html">Explore subjects</a
+            ><a href="resources.html">Resource library</a
+            ><a href="study-plan.html">Make a study plan</a>
+          </div>
+        </div>
+        <div>
+          <h2 class="h5">Your learning space</h2>
+          <div class="footer-links">
+            <a href="contact.html">Create an account</a
+            ><a href="dashboard.html">My reading shelf</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span>© 2026 Rasuli’s Knowledge Hub · Created by Alireza Rasuli</span>
+      </div>
+    </footer>
 
-
-    <div class="container footer-bottom">
-        © 2026 Rasuli's Knowledge Hub
-    </div>
-
-</footer>
-
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
-</body>
+    <div
+      aria-live="polite"
+      class="toast-message"
+      id="toast-message"
+      role="status"
+    ></div>
+    <button
+      aria-label="Back to top"
+      class="back-top"
+      data-back-top=""
+      hidden=""
+      type="button"
+    >
+      ↑
+    </button>
+    <script defer="" src="vendor/jquery.min.js"></script>
+    <script defer src="js/photos.js"></script>
+    <script defer src="js/data.js"></script>
+    <script defer="" src="js/store.js"></script>
+    <script defer="" src="js/common.js"></script>
+    <script defer src="js/table-model.js"></script>
+    <script defer src="js/tables.js"></script>
+    <script defer src="js/midnight.js"></script>
+    <script defer src="js/motion.js"></script>
+    <script defer src="js/cinematic.js"></script>
+  </body>
 </html>
