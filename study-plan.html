@@ -1,76 +1,80 @@
 <!doctype html>
-
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta
-      content="Use a simple study system and weekly schedule in Rasuli's Knowledge Hub."
-      name="description"
-    />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Use a simple study system and weekly schedule in Rasuli's Knowledge Hub." name="description">
     <title>Rasuli's Knowledge Hub | Study Plan</title>
-
-    <link href="vendor/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <link
-      id="hub-favicon"
-      rel="icon"
-      type="image/x-icon"
-      href="images/favicon.ico"
-    />
-    <link href="css/endterm.css" rel="stylesheet" />
-    <meta name="theme-color" content="#090a0b" />
-    <meta name="color-scheme" content="dark" />
-    <link rel="preconnect" href="https://images.pexels.com" />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="stylesheet" href="css/midnight.css" />
-    <link rel="stylesheet" href="css/motion.css" />
-    <link rel="stylesheet" href="css/cinematic.css" />
+    <script src="js/theme.js?v=final-5"></script>
+    <script src="js/tab-state.js?v=final-5"></script>
+    <script src="js/navigation.js?v=final-5"></script>
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css?v=final-5" rel="stylesheet">
+    <link id="hub-favicon" rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="css/endterm.css?v=final-5" rel="stylesheet">
+    <meta name="theme-color" content="#090a0b">
+    <meta name="color-scheme" content="dark light">
+    <link rel="preconnect" href="https://images.pexels.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="css/midnight.css?v=final-5">
+    <link rel="stylesheet" href="css/motion.css?v=final-5">
+    <link rel="stylesheet" href="css/cinematic.css?v=final-5">
+    <link rel="stylesheet" href="css/final.css?v=final-5">
+    <link rel="stylesheet" href="css/navigation.css?v=final-5">
   </head>
   <body data-page="study-plan">
-    <a class="skip-link" href="#main-content"> Skip to main content </a>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header flat-header">
       <nav class="site-nav flat-nav" aria-label="Main navigation">
         <div class="container">
           <div class="brand-row">
-            <a class="navbar-brand" href="index.html"
-              ><span class="brand-mark" aria-hidden="true"></span
-              ><span class="brand-copy"
-                >Rasuli’s<span>KNOWLEDGE HUB</span></span
-              ></a
-            ><button
-              class="flat-signout"
-              type="button"
-              data-logout
-              data-member-only
-              hidden
-            >
-              Sign out
-            </button>
+            <a class="navbar-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-copy">Rasuli’s<span>KNOWLEDGE HUB</span>
+              </span>
+            </a>
+            <div class="nav-tools">
+              <a class="member-link" href="profile.html" data-member-only hidden>
+                <span class="member-dot" aria-hidden="true"></span>
+                <span data-user-first-name>My profile</span>
+              </a>
+              <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+                <span data-theme-icon aria-hidden="true">☾</span>
+                <span data-theme-label>Dark</span>
+              </button>
+              <button class="flat-signout" type="button" data-logout data-member-only hidden>Log out</button>
+            </div>
           </div>
           <ul class="page-nav" id="mainNav">
-            <li><a class="page-nav-link" href="index.html">Home</a></li>
-            <li><a class="page-nav-link" href="about.html">About</a></li>
-            <li><a class="page-nav-link" href="subjects.html">Subjects</a></li>
+            <li>
+              <a class="page-nav-link" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="about.html">About</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="subjects.html">Subjects</a>
+            </li>
             <li>
               <a class="page-nav-link" href="resources.html">Resources</a>
             </li>
             <li>
-              <a
-                class="page-nav-link active"
-                href="study-plan.html"
-                aria-current="page"
-                >Study plan</a
-              >
+              <a class="page-nav-link" href="study-plan.html" aria-current="page">Study plan</a>
             </li>
             <li>
               <a class="page-nav-link" href="dashboard.html">Dashboard</a>
             </li>
-            <li><a class="page-nav-link" href="login.html">Log in</a></li>
-            <li>
-              <a class="page-nav-link page-nav-signup" href="contact.html"
-                >Sign up</a
-              >
+            <li data-member-only hidden>
+              <a class="page-nav-link" href="profile.html">Profile</a>
+            </li>
+            <li data-admin-only hidden>
+              <a class="page-nav-link" href="administrator.html">Administrator</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link" href="login.html">Log in</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link page-nav-signup" href="contact.html">Sign up</a>
             </li>
           </ul>
         </div>
@@ -79,19 +83,16 @@
     <div class="storage-warning" id="storage-warning" role="status" hidden>
       <div class="container" data-storage-message></div>
     </div>
-    <noscript
-      ><div class="storage-warning">
+    <noscript>
+      <div class="storage-warning">
         Enable JavaScript to use accounts, filters and the planner. The original
         pages remain available below.
-      </div></noscript
-    >
+      </div>
+    </noscript>
     <main class="page-shell" id="main-content">
-      <section
-        class="page-hero"
-        style="
-          --hero-image: url(&quot;https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400&quot;);
-        "
-      >
+      <section class="page-hero" style='
+          --hero-image: url("https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400");
+        '>
         <div class="container">
           <p class="eyebrow">Study planner</p>
           <h1>A simple routine is more useful than a perfect plan.</h1>
@@ -105,83 +106,43 @@
         <div class="container">
           <p class="eyebrow">Four-step focus cycle</p>
           <h2>One study block, four deliberate actions</h2>
-          <div
-            class="focus-board mt-4"
-            role="group"
-            aria-label="Choose a step in your study cycle"
-          >
-            <button
-              class="surface-card focus-step"
-              type="button"
-              data-focus-step="0"
-              aria-pressed="true"
-              aria-controls="focus-step-detail"
-            >
-              <span class="focus-index" aria-hidden="true">01</span
-              ><span class="focus-copy"
-                ><strong>Preview</strong
-                ><span class="muted-text"
-                  >Read headings and define what you expect to learn.</span
-                ></span
-              ><span class="focus-step-arrow" aria-hidden="true"
-                >↗</span
-              ></button
-            ><button
-              class="surface-card focus-step"
-              type="button"
-              data-focus-step="1"
-              aria-pressed="false"
-              aria-controls="focus-step-detail"
-            >
-              <span class="focus-index" aria-hidden="true">02</span
-              ><span class="focus-copy"
-                ><strong>Learn</strong
-                ><span class="muted-text"
-                  >Work through one focused concept using the main source.</span
-                ></span
-              ><span class="focus-step-arrow" aria-hidden="true"
-                >↗</span
-              ></button
-            ><button
-              class="surface-card focus-step"
-              type="button"
-              data-focus-step="2"
-              aria-pressed="false"
-              aria-controls="focus-step-detail"
-            >
-              <span class="focus-index" aria-hidden="true">03</span
-              ><span class="focus-copy"
-                ><strong>Practice</strong
-                ><span class="muted-text"
-                  >Solve a problem, write code or explain the idea from
-                  memory.</span
-                ></span
-              ><span class="focus-step-arrow" aria-hidden="true"
-                >↗</span
-              ></button
-            ><button
-              class="surface-card focus-step"
-              type="button"
-              data-focus-step="3"
-              aria-pressed="false"
-              aria-controls="focus-step-detail"
-            >
-              <span class="focus-index" aria-hidden="true">04</span
-              ><span class="focus-copy"
-                ><strong>Review</strong
-                ><span class="muted-text"
-                  >Write a short summary and mark what needs another
-                  session.</span
-                ></span
-              ><span class="focus-step-arrow" aria-hidden="true">↗</span>
+          <div class="focus-board mt-4" role="group" aria-label="Choose a step in your study cycle">
+            <button class="surface-card focus-step" type="button" data-focus-step="0" aria-pressed="true" aria-controls="focus-step-detail">
+              <span class="focus-index" aria-hidden="true">01</span>
+              <span class="focus-copy">
+                <strong>Preview</strong>
+                <span class="muted-text">Read headings and define what you expect to learn.</span>
+              </span>
+              <span class="focus-step-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button class="surface-card focus-step" type="button" data-focus-step="1" aria-pressed="false" aria-controls="focus-step-detail">
+              <span class="focus-index" aria-hidden="true">02</span>
+              <span class="focus-copy">
+                <strong>Learn</strong>
+                <span class="muted-text">Work through one focused concept using the main source.</span>
+              </span>
+              <span class="focus-step-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button class="surface-card focus-step" type="button" data-focus-step="2" aria-pressed="false" aria-controls="focus-step-detail">
+              <span class="focus-index" aria-hidden="true">03</span>
+              <span class="focus-copy">
+                <strong>Practice</strong>
+                <span class="muted-text">Solve a problem, write code or explain the idea from
+                  memory.</span>
+              </span>
+              <span class="focus-step-arrow" aria-hidden="true">↗</span>
+            </button>
+            <button class="surface-card focus-step" type="button" data-focus-step="3" aria-pressed="false" aria-controls="focus-step-detail">
+              <span class="focus-index" aria-hidden="true">04</span>
+              <span class="focus-copy">
+                <strong>Review</strong>
+                <span class="muted-text">Write a short summary and mark what needs another
+                  session.</span>
+              </span>
+              <span class="focus-step-arrow" aria-hidden="true">↗</span>
             </button>
           </div>
-          <div
-            class="focus-step-detail"
-            id="focus-step-detail"
-            aria-live="polite"
-            aria-atomic="true"
-          >
+          <div class="focus-step-detail" id="focus-step-detail" aria-live="polite" aria-atomic="true">
             <span class="focus-detail-kicker">01 / PREVIEW</span>
             <p>
               Before you start, scan the headings and write one question you
@@ -201,14 +162,16 @@
           <p class="field-hint" id="planner-owner"></p>
           <div class="plan-stats">
             <div class="plan-stat">
-              <strong id="plan-count">0</strong><span>planned sessions</span>
+              <strong id="plan-count">0</strong>
+              <span>planned sessions</span>
             </div>
             <div class="plan-stat">
-              <strong id="plan-minutes">0</strong><span>planned minutes</span>
+              <strong id="plan-minutes">0</strong>
+              <span>planned minutes</span>
             </div>
             <div class="plan-stat">
-              <strong id="plan-completed">0</strong
-              ><span>sessions completed</span>
+              <strong id="plan-completed">0</strong>
+              <span>sessions completed</span>
             </div>
           </div>
           <div class="planner-layout">
@@ -218,24 +181,12 @@
                 <form id="planner-form" novalidate="">
                   <div class="planner-grid">
                     <div class="form-field">
-                      <label for="taskTitle">What will you work on?</label
-                      ><input
-                        class="form-control"
-                        id="taskTitle"
-                        maxlength="80"
-                        name="taskTitle"
-                        placeholder="Practise JavaScript arrays"
-                        required=""
-                        type="text"
-                      />
+                      <label for="taskTitle">What will you work on?</label>
+                      <input class="form-control" id="taskTitle" maxlength="80" name="taskTitle" placeholder="Practise JavaScript arrays" required="" type="text">
                     </div>
                     <div class="form-field">
-                      <label for="taskSubject">Subject</label
-                      ><select
-                        class="form-select"
-                        id="taskSubject"
-                        name="taskSubject"
-                      >
+                      <label for="taskSubject">Subject</label>
+                      <select class="form-select" id="taskSubject" name="taskSubject">
                         <option value="">Choose a subject</option>
                         <option>Programming</option>
                         <option>Mathematics</option>
@@ -246,58 +197,32 @@
                       </select>
                     </div>
                     <div class="form-field">
-                      <label for="taskDate">Study date</label
-                      ><input
-                        class="form-control"
-                        id="taskDate"
-                        name="taskDate"
-                        required=""
-                        type="date"
-                      />
+                      <label for="taskDate">Study date</label>
+                      <input class="form-control" id="taskDate" name="taskDate" required="" type="date">
                     </div>
                     <div class="form-field">
-                      <label for="taskMinutes">Minutes</label
-                      ><input
-                        class="form-control"
-                        id="taskMinutes"
-                        max="180"
-                        min="5"
-                        name="taskMinutes"
-                        placeholder="25"
-                        required=""
-                        step="1"
-                        type="number"
-                      />
+                      <label for="taskTime">Start time <span class="field-hint">(optional)</span></label>
+                      <input class="form-control" id="taskTime" name="taskTime" type="time">
+                    </div>
+                    <div class="form-field">
+                      <label for="taskMinutes">Minutes</label>
+                      <input class="form-control" id="taskMinutes" max="180" min="5" name="taskMinutes" placeholder="25" required="" step="1" type="number">
                     </div>
                   </div>
                   <button class="btn btn-mint mt-3" type="submit">
                     Add to my plan +
                   </button>
-                  <div
-                    aria-live="polite"
-                    class="form-status"
-                    role="status"
-                  ></div>
+                  <div aria-live="polite" class="form-status" role="status"></div>
                 </form>
               </div>
               <div class="section-heading-row mt-4">
                 <h3 class="h4 mb-0">Your sessions</h3>
-                <button
-                  class="btn btn-outline-mint btn-sm"
-                  disabled=""
-                  id="export-plan"
-                  type="button"
-                >
+                <button class="btn btn-outline-mint btn-sm" disabled id="export-plan" type="button">
                   Export CSV ↓
                 </button>
               </div>
-              <span class="field-hint" id="plan-progress-label"></span
-              ><progress
-                aria-label="Completed planned minutes"
-                id="plan-progress"
-                max="100"
-                value="0"
-              ></progress>
+              <span class="field-hint" id="plan-progress-label"></span>
+              <progress aria-label="Completed planned minutes" id="plan-progress" max="100" value="0"></progress>
               <ul class="task-list" id="task-list"></ul>
               <div class="empty-state" id="plan-empty">
                 <h3>A clear space to begin.</h3>
@@ -309,32 +234,25 @@
             <aside class="focus-panel">
               <p class="eyebrow">One thing at a time</p>
               <h3>A moment to focus.</h3>
-              <label class="form-label" for="focus-duration"
-                >Session length</label
-              ><select class="form-select" id="focus-duration">
-                <option value="25">25 minutes · Focus</option>
-                <option value="45">45 minutes · Deep work</option>
-                <option value="5">5 minutes · Short break</option>
-                <option value="1">1 minute · Quick reset</option>
-              </select>
+              <label class="form-label" for="focus-duration">Your session length (minutes)</label>
+              <input class="form-control" id="focus-duration" type="number" min="1" max="180" step="1" value="25" required aria-describedby="duration-hint duration-error">
+              <p class="field-hint" id="duration-hint">Enter any whole number from 1 to 180.</p>
+              <p class="field-error" id="duration-error" aria-live="polite"></p>
+              <div class="duration-presets" aria-label="Quick session lengths">
+                <button type="button" class="icon-button" data-duration="5">5 min</button>
+                <button type="button" class="icon-button" data-duration="25">25 min</button>
+                <button type="button" class="icon-button" data-duration="45">45 min</button>
+              </div>
               <div class="timer-ring" id="timer-ring">
                 <div class="timer-face">
-                  <strong
-                    aria-label="Time remaining"
-                    id="timer-display"
-                    role="timer"
-                    >25:00</strong
-                  ><span>make this time yours</span>
+                  <strong aria-label="Time remaining" id="timer-display" role="timer">25:00</strong>
+                  <span>make this time yours</span>
                 </div>
               </div>
               <div class="timer-actions">
                 <button class="btn btn-mint" id="timer-start" type="button">
-                  Start focus</button
-                ><button
-                  class="btn btn-outline-mint"
-                  id="timer-reset"
-                  type="button"
-                >
+                  Start focus</button>
+                <button class="btn btn-outline-mint" id="timer-reset" type="button">
                   Reset
                 </button>
               </div>
@@ -450,58 +368,38 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h2>Rasuli’s Knowledge Hub</h2>
-          <p class="muted-text">
-            A little curiosity. A clear direction.<br />A better way to keep
-            learning.
-          </p>
+          <h2 class="h4">A little focus. Every day.</h2>
+          <p>A personal learning space by Alireza Rasuli. Explore six disciplines, keep a reading shelf and make time for your next idea.</p>
         </div>
         <div>
-          <h2 class="h5">Find your next step</h2>
+          <h2 class="h5">Keep learning</h2>
           <div class="footer-links">
-            <a href="subjects.html">Explore subjects</a
-            ><a href="resources.html">Resource library</a
-            ><a href="study-plan.html">Make a study plan</a>
-          </div>
-        </div>
-        <div>
-          <h2 class="h5">Your learning space</h2>
-          <div class="footer-links">
-            <a href="contact.html">Create an account</a
-            ><a href="dashboard.html">My reading shelf</a>
+            <a href="subjects.html">Find a subject</a>
+            <a href="resources.html">Browse resources</a>
+            <a href="study-plan.html">Plan a session</a>
           </div>
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© 2026 Rasuli’s Knowledge Hub · Created by Alireza Rasuli</span>
+        <p>© 2026 Alireza Rasuli · Rasuli’s Knowledge Hub</p>
+        <p>Front-end learning project · Your data stays in this browser.</p>
       </div>
     </footer>
-
-    <div
-      aria-live="polite"
-      class="toast-message"
-      id="toast-message"
-      role="status"
-    ></div>
-    <button
-      aria-label="Back to top"
-      class="back-top"
-      data-back-top=""
-      hidden=""
-      type="button"
-    >
+    <div aria-live="polite" class="toast-message" id="toast-message" role="status"></div>
+    <button aria-label="Back to top" class="back-top" data-back-top="" hidden="" type="button">
       ↑
     </button>
-    <script defer="" src="vendor/jquery.min.js"></script>
-    <script defer src="js/photos.js"></script>
-    <script defer src="js/data.js"></script>
-    <script defer="" src="js/store.js"></script>
-    <script defer="" src="js/common.js"></script>
-    <script defer="" src="js/planner.js"></script>
-    <script defer src="js/table-model.js"></script>
-    <script defer src="js/tables.js"></script>
-    <script defer src="js/midnight.js"></script>
-    <script defer src="js/motion.js"></script>
-    <script defer src="js/cinematic.js"></script>
+    <script defer src="vendor/jquery.min.js"></script>
+    <script defer src="js/photos.js?v=final-5"></script>
+    <script defer src="js/data.js?v=final-5"></script>
+    <script defer src="js/database.js?v=final-5"></script>
+    <script defer src="js/store.js?v=final-5"></script>
+    <script defer src="js/common.js?v=final-5"></script>
+    <script defer src="js/planner.js?v=final-5"></script>
+    <script defer src="js/table-model.js?v=final-5"></script>
+    <script defer src="js/tables.js?v=final-5"></script>
+    <script defer src="js/midnight.js?v=final-5"></script>
+    <script defer src="js/motion.js?v=final-5"></script>
+    <script defer src="js/cinematic.js?v=final-5"></script>
   </body>
 </html>
