@@ -1,64 +1,60 @@
 <!doctype html>
-
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta
-      content="Learn the purpose, story and principles behind Rasuli's Knowledge Hub."
-      name="description"
-    />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Learn the purpose, story and principles behind Rasuli's Knowledge Hub." name="description">
     <title>Rasuli's Knowledge Hub | About</title>
-
-    <link href="vendor/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <link
-      id="hub-favicon"
-      rel="icon"
-      type="image/x-icon"
-      href="images/favicon.ico"
-    />
-    <link href="css/endterm.css" rel="stylesheet" />
-    <meta name="theme-color" content="#090a0b" />
-    <meta name="color-scheme" content="dark" />
-    <link rel="preconnect" href="https://images.pexels.com" />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="stylesheet" href="css/midnight.css" />
-    <link rel="stylesheet" href="css/motion.css" />
-    <link rel="stylesheet" href="css/cinematic.css" />
+    <script src="js/theme.js?v=final-5"></script>
+    <script src="js/tab-state.js?v=final-5"></script>
+    <script src="js/navigation.js?v=final-5"></script>
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css?v=final-5" rel="stylesheet">
+    <link id="hub-favicon" rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="css/endterm.css?v=final-5" rel="stylesheet">
+    <meta name="theme-color" content="#090a0b">
+    <meta name="color-scheme" content="dark light">
+    <link rel="preconnect" href="https://images.pexels.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="css/midnight.css?v=final-5">
+    <link rel="stylesheet" href="css/motion.css?v=final-5">
+    <link rel="stylesheet" href="css/cinematic.css?v=final-5">
+    <link rel="stylesheet" href="css/final.css?v=final-5">
+    <link rel="stylesheet" href="css/navigation.css?v=final-5">
   </head>
   <body data-page="about">
-    <a class="skip-link" href="#main-content"> Skip to main content </a>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header flat-header">
       <nav class="site-nav flat-nav" aria-label="Main navigation">
         <div class="container">
           <div class="brand-row">
-            <a class="navbar-brand" href="index.html"
-              ><span class="brand-mark" aria-hidden="true"></span
-              ><span class="brand-copy"
-                >Rasuli’s<span>KNOWLEDGE HUB</span></span
-              ></a
-            ><button
-              class="flat-signout"
-              type="button"
-              data-logout
-              data-member-only
-              hidden
-            >
-              Sign out
-            </button>
+            <a class="navbar-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-copy">Rasuli’s<span>KNOWLEDGE HUB</span>
+              </span>
+            </a>
+            <div class="nav-tools">
+              <a class="member-link" href="profile.html" data-member-only hidden>
+                <span class="member-dot" aria-hidden="true"></span>
+                <span data-user-first-name>My profile</span>
+              </a>
+              <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+                <span data-theme-icon aria-hidden="true">☾</span>
+                <span data-theme-label>Dark</span>
+              </button>
+              <button class="flat-signout" type="button" data-logout data-member-only hidden>Log out</button>
+            </div>
           </div>
           <ul class="page-nav" id="mainNav">
-            <li><a class="page-nav-link" href="index.html">Home</a></li>
             <li>
-              <a
-                class="page-nav-link active"
-                href="about.html"
-                aria-current="page"
-                >About</a
-              >
+              <a class="page-nav-link" href="index.html">Home</a>
             </li>
-            <li><a class="page-nav-link" href="subjects.html">Subjects</a></li>
+            <li>
+              <a class="page-nav-link" href="about.html" aria-current="page">About</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="subjects.html">Subjects</a>
+            </li>
             <li>
               <a class="page-nav-link" href="resources.html">Resources</a>
             </li>
@@ -68,11 +64,17 @@
             <li>
               <a class="page-nav-link" href="dashboard.html">Dashboard</a>
             </li>
-            <li><a class="page-nav-link" href="login.html">Log in</a></li>
-            <li>
-              <a class="page-nav-link page-nav-signup" href="contact.html"
-                >Sign up</a
-              >
+            <li data-member-only hidden>
+              <a class="page-nav-link" href="profile.html">Profile</a>
+            </li>
+            <li data-admin-only hidden>
+              <a class="page-nav-link" href="administrator.html">Administrator</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link" href="login.html">Log in</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link page-nav-signup" href="contact.html">Sign up</a>
             </li>
           </ul>
         </div>
@@ -81,12 +83,12 @@
     <div class="storage-warning" id="storage-warning" role="status" hidden>
       <div class="container" data-storage-message></div>
     </div>
-    <noscript
-      ><div class="storage-warning">
+    <noscript>
+      <div class="storage-warning">
         Enable JavaScript to use accounts, filters and the planner. The original
         pages remain available below.
-      </div></noscript
-    >
+      </div>
+    </noscript>
     <main class="page-shell" id="main-content">
       <section class="page-hero about-hero">
         <div class="container">
@@ -105,12 +107,7 @@
           <div class="row g-5 align-items-start">
             <div class="col-12 col-lg-6">
               <figure class="founder-figure">
-                <img
-                  alt="Library shelves that inspire the Knowledge Hub"
-                  decoding="async"
-                  loading="lazy"
-                  src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
-                />
+                <img alt="Library shelves that inspire the Knowledge Hub" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85">
                 <figcaption>
                   A space for ideas. Stock library photography; project created
                   by Alireza Rasuli.
@@ -118,37 +115,13 @@
               </figure>
             </div>
             <div class="col-12 col-lg-6">
-              <p class="eyebrow">Key milestones</p>
-              <h2>How the idea developed</h2>
-              <ol class="timeline-list">
-                <li>
-                  <span class="timeline-year"> 2020 </span>
-                  <span>
-                    The first idea was to create an organized digital index of
-                    academic material.
-                  </span>
-                </li>
-                <li>
-                  <span class="timeline-year"> 2022 </span>
-                  <span>
-                    The concept expanded to connect books, notes and online
-                    learning resources.
-                  </span>
-                </li>
-                <li>
-                  <span class="timeline-year"> 2024 </span>
-                  <span>
-                    Programming and mathematics became the first structured
-                    learning categories.
-                  </span>
-                </li>
-                <li>
-                  <span class="timeline-year"> 2026 </span>
-                  <span>
-                    The hub expanded into a broader learning space with
-                    subjects, resources and planning tools.
-                  </span>
-                </li>
+              <p class="eyebrow">YOUR LIBRARY, YOUR ROUTINE</p>
+              <h2>Good reads. Clear direction. Room to grow.</h2>
+              <p class="section-lead">A useful library connects the right material with the moment you need it.</p>
+              <ol class="library-journey">
+                <li><span class="journey-number" aria-hidden="true">01</span><div><h3>Discover a new shelf</h3><p>Follow six subject pathways, from programming and mathematics to medicine and research.</p><a href="subjects.html">Explore the subjects <span aria-hidden="true">↗</span></a></div></li>
+                <li><span class="journey-number" aria-hidden="true">02</span><div><h3>Keep what matters</h3><p>Find books, trusted references and practice material. Save the resources you want to return to.</p><a href="resources.html">Browse the collection <span aria-hidden="true">↗</span></a></div></li>
+                <li><span class="journey-number" aria-hidden="true">03</span><div><h3>Make time for a chapter</h3><p>Turn a reading list into a weekly habit. Plan a session, focus on one idea and watch your progress grow.</p><a href="study-plan.html">Make a study plan <span aria-hidden="true">↗</span></a></div></li>
               </ol>
             </div>
           </div>
@@ -200,12 +173,7 @@
                 curious and keep a long-term learning habit.
               </p>
               <div class="photo-story">
-                <img
-                  alt="Students discussing their work in a library"
-                  decoding="async"
-                  loading="lazy"
-                  src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-                />
+                <img alt="Students discussing their work in a library" decoding="async" loading="lazy" src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
                 <h3>Ideas grow in good company.</h3>
                 <p class="muted-text mb-0">
                   Use your reading time to ask better questions, then share what
@@ -220,12 +188,7 @@
                   When a topic becomes important, move beyond summaries and look
                   for academic papers, books and original sources.
                 </p>
-                <a
-                  class="btn btn-outline-mint"
-                  href="https://scholar.google.com/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
+                <a class="btn btn-outline-mint" href="https://scholar.google.com/" rel="noopener noreferrer" target="_blank">
                   Explore Google Scholar
                 </a>
               </article>
@@ -242,78 +205,33 @@
             between images.
           </p>
           <div class="photo-gallery">
-            <button
-              aria-label="Enlarge photograph: Make room for shared ideas"
-              class="gallery-tile"
-              data-gallery-caption="Make room for shared ideas"
-              data-gallery-src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              type="button"
-            >
-              <img
-                alt="Make room for shared ideas"
-                decoding="async"
-                loading="lazy"
-                src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              /><span>Make room for shared ideas</span></button
-            ><button
-              aria-label="Enlarge photograph: Find a quiet place to read"
-              class="gallery-tile"
-              data-gallery-caption="Find a quiet place to read"
-              data-gallery-src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
-              type="button"
-            >
-              <img
-                alt="Find a quiet place to read"
-                decoding="async"
-                loading="lazy"
-                src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
-              /><span>Find a quiet place to read</span></button
-            ><button
-              aria-label="Enlarge photograph: Follow a better question"
-              class="gallery-tile"
-              data-gallery-caption="Follow a better question"
-              data-gallery-src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              type="button"
-            >
-              <img
-                alt="Follow a better question"
-                decoding="async"
-                loading="lazy"
-                src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              /><span>Follow a better question</span>
+            <button aria-label="Enlarge photograph: Make room for shared ideas" class="gallery-tile" data-gallery-caption="Make room for shared ideas" data-gallery-src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" type="button">
+              <img alt="Make room for shared ideas" decoding="async" loading="lazy" src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
+              <span>Make room for shared ideas</span>
+            </button>
+            <button aria-label="Enlarge photograph: Find a quiet place to read" class="gallery-tile" data-gallery-caption="Find a quiet place to read" data-gallery-src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85" type="button">
+              <img alt="Find a quiet place to read" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85">
+              <span>Find a quiet place to read</span>
+            </button>
+            <button aria-label="Enlarge photograph: Follow a better question" class="gallery-tile" data-gallery-caption="Follow a better question" data-gallery-src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400" type="button">
+              <img alt="Follow a better question" decoding="async" loading="lazy" src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
+              <span>Follow a better question</span>
             </button>
           </div>
-          <dialog
-            aria-label="Learning environment photo gallery"
-            class="gallery-dialog"
-            id="gallery-dialog"
-          >
+          <dialog aria-label="Learning environment photo gallery" class="gallery-dialog" id="gallery-dialog">
             <div class="dialog-close">
               <button class="icon-button" data-close-dialog="" type="button">
                 Close gallery ×
               </button>
             </div>
             <figure>
-              <img
-                alt="Library interior"
-                decoding="async"
-                loading="lazy"
-                src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
-              />
+              <img alt="Library interior" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85">
               <figcaption></figcaption>
             </figure>
             <div class="gallery-controls">
-              <button
-                class="btn btn-outline-mint btn-sm"
-                data-gallery-prev=""
-                type="button"
-              >
-                ← Previous</button
-              ><button
-                class="btn btn-outline-mint btn-sm"
-                data-gallery-next=""
-                type="button"
-              >
+              <button class="btn btn-outline-mint btn-sm" data-gallery-prev="" type="button">
+                ← Previous</button>
+              <button class="btn btn-outline-mint btn-sm" data-gallery-next="" type="button">
                 Next →
               </button>
             </div>
@@ -324,57 +242,37 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h2>Rasuli’s Knowledge Hub</h2>
-          <p class="muted-text">
-            A little curiosity. A clear direction.<br />A better way to keep
-            learning.
-          </p>
+          <h2 class="h4">A little focus. Every day.</h2>
+          <p>A personal learning space by Alireza Rasuli. Explore six disciplines, keep a reading shelf and make time for your next idea.</p>
         </div>
         <div>
-          <h2 class="h5">Find your next step</h2>
+          <h2 class="h5">Keep learning</h2>
           <div class="footer-links">
-            <a href="subjects.html">Explore subjects</a
-            ><a href="resources.html">Resource library</a
-            ><a href="study-plan.html">Make a study plan</a>
-          </div>
-        </div>
-        <div>
-          <h2 class="h5">Your learning space</h2>
-          <div class="footer-links">
-            <a href="contact.html">Create an account</a
-            ><a href="dashboard.html">My reading shelf</a>
+            <a href="subjects.html">Find a subject</a>
+            <a href="resources.html">Browse resources</a>
+            <a href="study-plan.html">Plan a session</a>
           </div>
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© 2026 Rasuli’s Knowledge Hub · Created by Alireza Rasuli</span>
+        <p>© 2026 Alireza Rasuli · Rasuli’s Knowledge Hub</p>
+        <p>Front-end learning project · Your data stays in this browser.</p>
       </div>
     </footer>
-
-    <div
-      aria-live="polite"
-      class="toast-message"
-      id="toast-message"
-      role="status"
-    ></div>
-    <button
-      aria-label="Back to top"
-      class="back-top"
-      data-back-top=""
-      hidden=""
-      type="button"
-    >
+    <div aria-live="polite" class="toast-message" id="toast-message" role="status"></div>
+    <button aria-label="Back to top" class="back-top" data-back-top="" hidden="" type="button">
       ↑
     </button>
-    <script defer="" src="vendor/jquery.min.js"></script>
-    <script defer src="js/photos.js"></script>
-    <script defer src="js/data.js"></script>
-    <script defer="" src="js/store.js"></script>
-    <script defer="" src="js/common.js"></script>
-    <script defer src="js/table-model.js"></script>
-    <script defer src="js/tables.js"></script>
-    <script defer src="js/midnight.js"></script>
-    <script defer src="js/motion.js"></script>
-    <script defer src="js/cinematic.js"></script>
+    <script defer src="vendor/jquery.min.js"></script>
+    <script defer src="js/photos.js?v=final-5"></script>
+    <script defer src="js/data.js?v=final-5"></script>
+    <script defer src="js/database.js?v=final-5"></script>
+    <script defer src="js/store.js?v=final-5"></script>
+    <script defer src="js/common.js?v=final-5"></script>
+    <script defer src="js/table-model.js?v=final-5"></script>
+    <script defer src="js/tables.js?v=final-5"></script>
+    <script defer src="js/midnight.js?v=final-5"></script>
+    <script defer src="js/motion.js?v=final-5"></script>
+    <script defer src="js/cinematic.js?v=final-5"></script>
   </body>
 </html>
