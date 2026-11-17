@@ -1,63 +1,59 @@
 <!doctype html>
-
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta
-      content="Explore learning pathways for programming, mathematics, politics, economics, medicine and research skills."
-      name="description"
-    />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Explore learning pathways for programming, mathematics, politics, economics, medicine and research skills." name="description">
     <title>Rasuli's Knowledge Hub | Subjects</title>
-
-    <link href="vendor/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <link
-      id="hub-favicon"
-      rel="icon"
-      type="image/x-icon"
-      href="images/favicon.ico"
-    />
-    <link href="css/endterm.css" rel="stylesheet" />
-    <meta name="theme-color" content="#090a0b" />
-    <meta name="color-scheme" content="dark" />
-    <link rel="preconnect" href="https://images.pexels.com" />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="stylesheet" href="css/midnight.css" />
-    <link rel="stylesheet" href="css/motion.css" />
-    <link rel="stylesheet" href="css/cinematic.css" />
+    <script src="js/theme.js?v=final-5"></script>
+    <script src="js/tab-state.js?v=final-5"></script>
+    <script src="js/navigation.js?v=final-5"></script>
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css?v=final-5" rel="stylesheet">
+    <link id="hub-favicon" rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="css/endterm.css?v=final-5" rel="stylesheet">
+    <meta name="theme-color" content="#090a0b">
+    <meta name="color-scheme" content="dark light">
+    <link rel="preconnect" href="https://images.pexels.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="css/midnight.css?v=final-5">
+    <link rel="stylesheet" href="css/motion.css?v=final-5">
+    <link rel="stylesheet" href="css/cinematic.css?v=final-5">
+    <link rel="stylesheet" href="css/final.css?v=final-5">
+    <link rel="stylesheet" href="css/navigation.css?v=final-5">
   </head>
   <body data-page="subjects">
-    <a class="skip-link" href="#main-content"> Skip to main content </a>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <header class="site-header flat-header">
       <nav class="site-nav flat-nav" aria-label="Main navigation">
         <div class="container">
           <div class="brand-row">
-            <a class="navbar-brand" href="index.html"
-              ><span class="brand-mark" aria-hidden="true"></span
-              ><span class="brand-copy"
-                >Rasuli’s<span>KNOWLEDGE HUB</span></span
-              ></a
-            ><button
-              class="flat-signout"
-              type="button"
-              data-logout
-              data-member-only
-              hidden
-            >
-              Sign out
-            </button>
+            <a class="navbar-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-copy">Rasuli’s<span>KNOWLEDGE HUB</span>
+              </span>
+            </a>
+            <div class="nav-tools">
+              <a class="member-link" href="profile.html" data-member-only hidden>
+                <span class="member-dot" aria-hidden="true"></span>
+                <span data-user-first-name>My profile</span>
+              </a>
+              <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+                <span data-theme-icon aria-hidden="true">☾</span>
+                <span data-theme-label>Dark</span>
+              </button>
+              <button class="flat-signout" type="button" data-logout data-member-only hidden>Log out</button>
+            </div>
           </div>
           <ul class="page-nav" id="mainNav">
-            <li><a class="page-nav-link" href="index.html">Home</a></li>
-            <li><a class="page-nav-link" href="about.html">About</a></li>
             <li>
-              <a
-                class="page-nav-link active"
-                href="subjects.html"
-                aria-current="page"
-                >Subjects</a
-              >
+              <a class="page-nav-link" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="about.html">About</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="subjects.html" aria-current="page">Subjects</a>
             </li>
             <li>
               <a class="page-nav-link" href="resources.html">Resources</a>
@@ -68,11 +64,17 @@
             <li>
               <a class="page-nav-link" href="dashboard.html">Dashboard</a>
             </li>
-            <li><a class="page-nav-link" href="login.html">Log in</a></li>
-            <li>
-              <a class="page-nav-link page-nav-signup" href="contact.html"
-                >Sign up</a
-              >
+            <li data-member-only hidden>
+              <a class="page-nav-link" href="profile.html">Profile</a>
+            </li>
+            <li data-admin-only hidden>
+              <a class="page-nav-link" href="administrator.html">Administrator</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link" href="login.html">Log in</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link page-nav-signup" href="contact.html">Sign up</a>
             </li>
           </ul>
         </div>
@@ -81,19 +83,16 @@
     <div class="storage-warning" id="storage-warning" role="status" hidden>
       <div class="container" data-storage-message></div>
     </div>
-    <noscript
-      ><div class="storage-warning">
+    <noscript>
+      <div class="storage-warning">
         Enable JavaScript to use accounts, filters and the planner. The original
         pages remain available below.
-      </div></noscript
-    >
+      </div>
+    </noscript>
     <main class="page-shell" id="main-content">
-      <section
-        class="page-hero"
-        style="
-          --hero-image: url(&quot;https://images.pexels.com/photos/6238020/pexels-photo-6238020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400&quot;);
-        "
-      >
+      <section class="page-hero" style='
+          --hero-image: url("https://images.pexels.com/photos/6238020/pexels-photo-6238020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400");
+        '>
         <div class="container">
           <p class="eyebrow">Subject map</p>
           <h1>Choose a direction before choosing a resource.</h1>
@@ -115,25 +114,14 @@
           </div>
           <div class="subject-search-row">
             <div class="form-field">
-              <label for="subject-search">Find a pathway</label
-              ><input
-                class="form-control"
-                id="subject-search"
-                placeholder="Try programming, research or logic"
-                type="search"
-              />
+              <label for="subject-search">Find a pathway</label>
+              <input class="form-control" id="subject-search" placeholder="Try programming, research or logic" type="search">
             </div>
             <span id="subject-count" role="status">6 pathways</span>
           </div>
           <div class="pathway-grid">
             <article class="pathway-card">
-              <img
-                alt="Programming code displayed on a screen"
-                class="pathway-photo"
-                decoding="async"
-                loading="lazy"
-                src="https://images.pexels.com/photos/1921326/pexels-photo-1921326.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              />
+              <img alt="Programming code displayed on a screen" class="pathway-photo" decoding="async" loading="lazy" src="https://images.pexels.com/photos/1921326/pexels-photo-1921326.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
               <div class="pathway-body">
                 <div class="pathway-icon">01</div>
                 <h3>Programming</h3>
@@ -147,17 +135,8 @@
                   <span>Web</span>
                 </div>
                 <div class="pathway-footer">
-                  <a
-                    class="btn btn-mint btn-sm"
-                    href="resources.html?subject=Programming"
-                    >Find resources →</a
-                  ><button
-                    aria-controls="pathway-0"
-                    aria-expanded="false"
-                    class="btn btn-outline-mint btn-sm"
-                    data-accordion=""
-                    type="button"
-                  >
+                  <a class="btn btn-mint btn-sm" href="resources.html?subject=Programming">Find resources →</a>
+                  <button aria-controls="pathway-0" aria-expanded="false" class="btn btn-outline-mint btn-sm" data-accordion="" type="button">
                     View roadmap
                   </button>
                 </div>
@@ -171,13 +150,7 @@
               </div>
             </article>
             <article class="pathway-card">
-              <img
-                alt="Students working on mathematical problems"
-                class="pathway-photo"
-                decoding="async"
-                loading="lazy"
-                src="https://images.pexels.com/photos/6238020/pexels-photo-6238020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              />
+              <img alt="Students working on mathematical problems" class="pathway-photo" decoding="async" loading="lazy" src="https://images.pexels.com/photos/6238020/pexels-photo-6238020.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
               <div class="pathway-body">
                 <div class="pathway-icon">02</div>
                 <h3>Mathematics</h3>
@@ -191,17 +164,8 @@
                   <span>Logic</span>
                 </div>
                 <div class="pathway-footer">
-                  <a
-                    class="btn btn-mint btn-sm"
-                    href="resources.html?subject=Mathematics"
-                    >Find resources →</a
-                  ><button
-                    aria-controls="pathway-1"
-                    aria-expanded="false"
-                    class="btn btn-outline-mint btn-sm"
-                    data-accordion=""
-                    type="button"
-                  >
+                  <a class="btn btn-mint btn-sm" href="resources.html?subject=Mathematics">Find resources →</a>
+                  <button aria-controls="pathway-1" aria-expanded="false" class="btn btn-outline-mint btn-sm" data-accordion="" type="button">
                     View roadmap
                   </button>
                 </div>
@@ -215,13 +179,7 @@
               </div>
             </article>
             <article class="pathway-card">
-              <img
-                alt="Hungarian Parliament Building beside the Danube"
-                class="pathway-photo"
-                decoding="async"
-                loading="lazy"
-                src="https://images.pexels.com/photos/21358211/pexels-photo-21358211.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              />
+              <img alt="Hungarian Parliament Building beside the Danube" class="pathway-photo" decoding="async" loading="lazy" src="https://images.pexels.com/photos/21358211/pexels-photo-21358211.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
               <div class="pathway-body">
                 <div class="pathway-icon">03</div>
                 <h3>Political Science</h3>
@@ -235,17 +193,8 @@
                   <span>Theory</span>
                 </div>
                 <div class="pathway-footer">
-                  <a
-                    class="btn btn-mint btn-sm"
-                    href="resources.html?subject=Political%20Science"
-                    >Find resources →</a
-                  ><button
-                    aria-controls="pathway-2"
-                    aria-expanded="false"
-                    class="btn btn-outline-mint btn-sm"
-                    data-accordion=""
-                    type="button"
-                  >
+                  <a class="btn btn-mint btn-sm" href="resources.html?subject=Political%20Science">Find resources →</a>
+                  <button aria-controls="pathway-2" aria-expanded="false" class="btn btn-outline-mint btn-sm" data-accordion="" type="button">
                     View roadmap
                   </button>
                 </div>
@@ -259,13 +208,7 @@
               </div>
             </article>
             <article class="pathway-card">
-              <img
-                alt="A financial chart displaying changing market data"
-                class="pathway-photo"
-                decoding="async"
-                loading="lazy"
-                src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              />
+              <img alt="A financial chart displaying changing market data" class="pathway-photo" decoding="async" loading="lazy" src="https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
               <div class="pathway-body">
                 <div class="pathway-icon">04</div>
                 <h3>Economics</h3>
@@ -279,17 +222,8 @@
                   <span>Behavior</span>
                 </div>
                 <div class="pathway-footer">
-                  <a
-                    class="btn btn-mint btn-sm"
-                    href="resources.html?subject=Economics"
-                    >Find resources →</a
-                  ><button
-                    aria-controls="pathway-3"
-                    aria-expanded="false"
-                    class="btn btn-outline-mint btn-sm"
-                    data-accordion=""
-                    type="button"
-                  >
+                  <a class="btn btn-mint btn-sm" href="resources.html?subject=Economics">Find resources →</a>
+                  <button aria-controls="pathway-3" aria-expanded="false" class="btn btn-outline-mint btn-sm" data-accordion="" type="button">
                     View roadmap
                   </button>
                 </div>
@@ -303,13 +237,7 @@
               </div>
             </article>
             <article class="pathway-card">
-              <img
-                alt="A researcher using a microscope"
-                class="pathway-photo"
-                decoding="async"
-                loading="lazy"
-                src="https://images.pexels.com/photos/9574404/pexels-photo-9574404.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              />
+              <img alt="A researcher using a microscope" class="pathway-photo" decoding="async" loading="lazy" src="https://images.pexels.com/photos/9574404/pexels-photo-9574404.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
               <div class="pathway-body">
                 <div class="pathway-icon">05</div>
                 <h3>Medicine</h3>
@@ -323,17 +251,8 @@
                   <span>Reference</span>
                 </div>
                 <div class="pathway-footer">
-                  <a
-                    class="btn btn-mint btn-sm"
-                    href="resources.html?subject=Medicine"
-                    >Find resources →</a
-                  ><button
-                    aria-controls="pathway-4"
-                    aria-expanded="false"
-                    class="btn btn-outline-mint btn-sm"
-                    data-accordion=""
-                    type="button"
-                  >
+                  <a class="btn btn-mint btn-sm" href="resources.html?subject=Medicine">Find resources →</a>
+                  <button aria-controls="pathway-4" aria-expanded="false" class="btn btn-outline-mint btn-sm" data-accordion="" type="button">
                     View roadmap
                   </button>
                 </div>
@@ -347,13 +266,7 @@
               </div>
             </article>
             <article class="pathway-card">
-              <img
-                alt="Students researching in a library"
-                class="pathway-photo"
-                decoding="async"
-                loading="lazy"
-                src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-              />
+              <img alt="Students researching in a library" class="pathway-photo" decoding="async" loading="lazy" src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
               <div class="pathway-body">
                 <div class="pathway-icon">06</div>
                 <h3>Research Skills</h3>
@@ -367,17 +280,8 @@
                   <span>Writing</span>
                 </div>
                 <div class="pathway-footer">
-                  <a
-                    class="btn btn-mint btn-sm"
-                    href="resources.html?subject=Research%20Skills"
-                    >Find resources →</a
-                  ><button
-                    aria-controls="pathway-5"
-                    aria-expanded="false"
-                    class="btn btn-outline-mint btn-sm"
-                    data-accordion=""
-                    type="button"
-                  >
+                  <a class="btn btn-mint btn-sm" href="resources.html?subject=Research%20Skills">Find resources →</a>
+                  <button aria-controls="pathway-5" aria-expanded="false" class="btn btn-outline-mint btn-sm" data-accordion="" type="button">
                     View roadmap
                   </button>
                 </div>
@@ -408,9 +312,9 @@
             You do not need to study everything at once. Pick one direction,
             define a small goal and build from there.
           </p>
-          <div class="layout-explainer mt-4">
+          <div class="layout-explainer library-guides mt-4">
             <article class="surface-card">
-              <span class="tool-tag"> Discover </span>
+              <span class="guide-number" aria-hidden="true">01</span><span class="tool-tag"> Discover </span>
               <h3 class="h5">Start with curiosity</h3>
               <p class="muted-text mb-0">
                 Choose a subject you genuinely want to understand, not only one
@@ -418,7 +322,7 @@
               </p>
             </article>
             <article class="surface-card">
-              <span class="tool-tag"> Focus </span>
+              <span class="guide-number" aria-hidden="true">02</span><span class="tool-tag"> Focus </span>
               <h3 class="h5">Set one clear goal</h3>
               <p class="muted-text mb-0">
                 Decide what you want to be able to explain, solve or build by
@@ -426,7 +330,7 @@
               </p>
             </article>
             <article class="surface-card">
-              <span class="tool-tag"> Connect </span>
+              <span class="guide-number" aria-hidden="true">03</span><span class="tool-tag"> Connect </span>
               <h3 class="h5">Link ideas together</h3>
               <p class="muted-text mb-0">
                 Use what you learn in one subject to strengthen your
@@ -441,12 +345,7 @@
           <div class="row g-5 align-items-center">
             <div class="col-12 col-lg-6">
               <div class="image-panel">
-                <img
-                  alt="Modern library interior"
-                  decoding="async"
-                  loading="lazy"
-                  src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
-                />
+                <img alt="Modern library interior" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85">
               </div>
             </div>
             <div class="col-12 col-lg-6">
@@ -468,58 +367,38 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h2>Rasuli’s Knowledge Hub</h2>
-          <p class="muted-text">
-            A little curiosity. A clear direction.<br />A better way to keep
-            learning.
-          </p>
+          <h2 class="h4">A little focus. Every day.</h2>
+          <p>A personal learning space by Alireza Rasuli. Explore six disciplines, keep a reading shelf and make time for your next idea.</p>
         </div>
         <div>
-          <h2 class="h5">Find your next step</h2>
+          <h2 class="h5">Keep learning</h2>
           <div class="footer-links">
-            <a href="subjects.html">Explore subjects</a
-            ><a href="resources.html">Resource library</a
-            ><a href="study-plan.html">Make a study plan</a>
-          </div>
-        </div>
-        <div>
-          <h2 class="h5">Your learning space</h2>
-          <div class="footer-links">
-            <a href="contact.html">Create an account</a
-            ><a href="dashboard.html">My reading shelf</a>
+            <a href="subjects.html">Find a subject</a>
+            <a href="resources.html">Browse resources</a>
+            <a href="study-plan.html">Plan a session</a>
           </div>
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© 2026 Rasuli’s Knowledge Hub · Created by Alireza Rasuli</span>
+        <p>© 2026 Alireza Rasuli · Rasuli’s Knowledge Hub</p>
+        <p>Front-end learning project · Your data stays in this browser.</p>
       </div>
     </footer>
-
-    <div
-      aria-live="polite"
-      class="toast-message"
-      id="toast-message"
-      role="status"
-    ></div>
-    <button
-      aria-label="Back to top"
-      class="back-top"
-      data-back-top=""
-      hidden=""
-      type="button"
-    >
+    <div aria-live="polite" class="toast-message" id="toast-message" role="status"></div>
+    <button aria-label="Back to top" class="back-top" data-back-top="" hidden="" type="button">
       ↑
     </button>
-    <script defer="" src="vendor/jquery.min.js"></script>
-    <script defer src="js/photos.js"></script>
-    <script defer src="js/data.js"></script>
-    <script defer="" src="js/store.js"></script>
-    <script defer="" src="js/common.js"></script>
-    <script defer="" src="js/resources.js"></script>
-    <script defer src="js/table-model.js"></script>
-    <script defer src="js/tables.js"></script>
-    <script defer src="js/midnight.js"></script>
-    <script defer src="js/motion.js"></script>
-    <script defer src="js/cinematic.js"></script>
+    <script defer src="vendor/jquery.min.js"></script>
+    <script defer src="js/photos.js?v=final-5"></script>
+    <script defer src="js/data.js?v=final-5"></script>
+    <script defer src="js/database.js?v=final-5"></script>
+    <script defer src="js/store.js?v=final-5"></script>
+    <script defer src="js/common.js?v=final-5"></script>
+    <script defer src="js/resources.js?v=final-5"></script>
+    <script defer src="js/table-model.js?v=final-5"></script>
+    <script defer src="js/tables.js?v=final-5"></script>
+    <script defer src="js/midnight.js?v=final-5"></script>
+    <script defer src="js/motion.js?v=final-5"></script>
+    <script defer src="js/cinematic.js?v=final-5"></script>
   </body>
 </html>
