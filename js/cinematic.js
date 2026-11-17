@@ -32,6 +32,7 @@
     let startY = null,
       suppressClick = false;
     function setLight(on) {
+      HubLamp.set(on);
       room.classList.toggle("lamp-on", on);
       document.body.classList.toggle("auth-asleep", !on);
       details.inert = !on;
@@ -64,7 +65,8 @@
       );
     }
     // Keep entered values when dimmed. Inert also removes hidden controls from Tab order.
-    setLight(false);
+    setLight(HubLamp.on);
+    window.addEventListener("pageshow", () => setLight(HubLamp.on));
     button.addEventListener("click", (event) => {
       if (suppressClick && event.detail !== 0) {
         suppressClick = false;
