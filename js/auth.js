@@ -26,10 +26,9 @@
         }
         f.reset();
         UI.clearErrors(f);
-        UI.status(f, "Signed in. Opening your workspace…", true);
-        const next = new URLSearchParams(location.search).get("next");
-        const allowed = ["dashboard.html", "study-plan.html", "resources.html"];
-        location.href = allowed.includes(next) ? next : "dashboard.html";
+        UI.status(f, "Signed in. Opening your profile…", true);
+        // The Final brief requires login to land on the Profile page.
+        HubNavigation.go("profile.html?welcome=1");
       },
     );
   });
@@ -56,8 +55,8 @@
               : "",
         email: emailRule,
         password: (v) =>
-          v.length < 12
-            ? "Use at least 12 characters."
+          v.length < 12 || v.length > 128
+            ? "Use 12–128 characters."
             : !/[a-z]/.test(v) ||
                 !/[A-Z]/.test(v) ||
                 !/[0-9]/.test(v) ||
@@ -85,7 +84,7 @@
         UI.clearErrors(form);
         UI.status(
           form,
-          "Your account is ready for this session. You can now log in.",
+          "Your account is saved in this browser. You can now log in.",
           true,
         );
         document.getElementById("signup-next").hidden = false;
