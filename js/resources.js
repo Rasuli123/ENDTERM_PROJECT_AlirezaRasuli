@@ -44,6 +44,10 @@
         minutes + " minutes of suggested study blocks";
       // Preserve the original academic archive, now populated from the same data array.
       const tbody = document.getElementById("archive-body");
+      const totalBooks = all.filter(resource => resource.core).length;
+      const matchingBooks = matches.filter(resource => resource.core).length;
+      document.querySelector("#academic-archive caption").textContent =
+        matchingBooks + " of " + totalBooks + " books match the library filters. Table search narrows these results further.";
       tbody.replaceChildren();
       matches
         .filter((r) => r.core)
@@ -74,6 +78,8 @@
       n.addEventListener(n === search ? "input" : "change", render),
     );
     function reset() {
+      // A subject link can preselect a category; Reset also clears that URL hint.
+      if (location.search) history.replaceState(null, "", location.pathname);
       search.value = "";
       category.value = "";
       type.value = "";
@@ -93,10 +99,12 @@
     render();
   }
   const preview = document.getElementById("home-resources");
-  if (preview)
-    preview.replaceChildren(
-      ...HubStore.resources().slice(0, 3).map(UI.resourceCard),
-    );
+  function renderPreview() {
+    document.querySelectorAll("[data-resource-total]").forEach(node => node.textContent = HubStore.resources().length);
+    if (preview) preview.replaceChildren(...HubStore.resources().slice(0, 3).map(UI.resourceCard));
+  }
+  renderPreview();
+  window.addEventListener("hub:resources", renderPreview);
   const subjectSearch = document.getElementById("subject-search");
   if (subjectSearch) {
     subjectSearch.addEventListener("input", () => {
