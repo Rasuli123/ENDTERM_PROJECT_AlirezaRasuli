@@ -44,10 +44,13 @@
     const compact = UI.el("button", "icon-button", "Compact");
     compact.type = "button";
     compact.setAttribute("aria-pressed", "false");
-    compact.setAttribute("aria-label", "Toggle compact rows");
+    compact.setAttribute("aria-label", "Use compact table layout");
+    compact.title = "Smaller text, tighter spacing and more rows in view";
     compact.addEventListener("click", () => {
       const on = shell.classList.toggle("is-compact");
       compact.setAttribute("aria-pressed", String(on));
+      compact.textContent = on ? "Comfortable" : "Compact";
+      compact.setAttribute("aria-label", on ? "Use comfortable table layout" : "Use compact table layout");
     });
     options.append(compact);
     const reset = UI.el("button", "icon-button", "Reset");
@@ -187,6 +190,10 @@
     function resetTable() {
       search.value = "";
       sizeSelect.value = "6";
+      shell.classList.remove("is-compact");
+      compact.setAttribute("aria-pressed", "false");
+      compact.setAttribute("aria-label", "Use compact table layout");
+      compact.textContent = "Compact";
       Object.assign(state, {
         query: "",
         column: -1,
