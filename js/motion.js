@@ -4,58 +4,16 @@
   const root = document.documentElement;
   const systemMotion = matchMedia("(prefers-reduced-motion: reduce)");
   const finePointer = matchMedia("(hover: hover) and (pointer: fine)");
-  const preferenceKey = "rasuli.hub.endterm.motion";
-  let preference = "on";
-  try {
-    preference = sessionStorage.getItem(preferenceKey) || "on";
-  } catch {
-    /* Optional preference only. */
-  }
-  let enabled = !systemMotion.matches && preference !== "off";
-  const toggle = document.createElement("button");
-  toggle.type = "button";
-  toggle.className = "motion-toggle";
-  const dot = document.createElement("span");
-  dot.className = "motion-dot";
-  dot.setAttribute("aria-hidden", "true");
-  const toggleText = document.createElement("span");
-  toggle.append(dot, toggleText);
-  document.body.append(toggle);
-
+  let enabled = !systemMotion.matches;
   function applyMotion() {
-    enabled = !systemMotion.matches && preference !== "off";
+    enabled = !systemMotion.matches;
     root.dataset.motion = enabled ? "on" : "off";
-    toggle.setAttribute("aria-pressed", String(enabled));
-    toggle.setAttribute(
-      "aria-label",
-      systemMotion.matches
-        ? "Animations paused by your reduced-motion setting"
-        : enabled
-          ? "Pause animations"
-          : "Enable animations",
-    );
-    toggleText.textContent = systemMotion.matches
-      ? "Reduced motion"
-      : enabled
-        ? "Motion on"
-        : "Motion off";
-    toggle.title = toggle.getAttribute("aria-label");
-    toggle.disabled = systemMotion.matches;
     if (window.jQuery) {
       window.jQuery.fx.off = !enabled;
       if (!enabled) window.jQuery(":animated").stop(true, true);
     }
     window.dispatchEvent(new Event("hub:motion"));
   }
-  toggle.addEventListener("click", () => {
-    preference = enabled ? "off" : "on";
-    try {
-      sessionStorage.setItem(preferenceKey, preference);
-    } catch {
-      /* Still works for this page. */
-    }
-    applyMotion();
-  });
   systemMotion.addEventListener("change", applyMotion);
   applyMotion();
 
@@ -64,6 +22,7 @@
   let highlighted = navigation?.querySelector('[aria-current="page"]');
   function highlight(link) {
     if (!navigation || !link) return;
+    if (link.closest("[hidden]")) link = navigation.querySelector('[aria-current="page"]') || navigation.querySelector(".page-nav-link");
     highlighted = link;
     navigation.style.setProperty(
       "--nav-x",
@@ -222,7 +181,7 @@
   // Content remains readable if animation or JavaScript is unavailable.
   if ("IntersectionObserver" in window) {
     const selector =
-      ".feature-card,.focus-step,.pathway-card,.library-card,.photo-story,.section-heading-row,.planner-panel,.plan-stat";
+      ".feature-card,.focus-step,.pathway-card,.library-card,.photo-story,.section-heading-row,.planner-panel,.plan-stat,.library-journey li,.library-guides .surface-card,.collection-coverage article,.library-guide-card";
     const observed = new WeakSet();
     let order = 0;
     const observer = new IntersectionObserver(
