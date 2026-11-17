@@ -1,4 +1,4 @@
-/* Reading-room motion. Every effect follows the site's motion switch. */
+/* CSS-drawn reading lamp, form reveal, card lighting and the twenty-second home spotlight. */
 
 :root {
   --spring: cubic-bezier(0.22, 1.25, 0.38, 1);
@@ -9,8 +9,8 @@
   width: 52px;
   height: 52px;
   flex: 0 0 52px;
-  border: 0;
-  background: url("../images/favicon.ico") center/contain no-repeat;
+  border: 0px;
+  background: url("../images/favicon.ico") center center / contain no-repeat;
   border-radius: 15px;
 }
 
@@ -19,17 +19,13 @@
 }
 
 .brand-copy {
-  font:
-    700 30px/1 Georgia,
-    serif;
+  font: 700 30px / 1 Georgia, serif;
   letter-spacing: -0.04em;
 }
 
 .brand-copy span {
   margin-top: 10px;
-  font:
-    700 9px/1.1 "Segoe UI",
-    sans-serif;
+  font: 700 9px / 1.1 "Segoe UI", sans-serif;
   letter-spacing: 0.19em;
 }
 
@@ -38,7 +34,7 @@
 }
 
 .flat-nav {
-  padding: 17px 0;
+  padding: 17px 0px;
 }
 
 .flat-nav > .container {
@@ -51,18 +47,15 @@
 
 .page-nav-link {
   padding: 13px 11px;
-  transition:
-    transform 0.38s var(--spring),
+  transition: transform 0.38s var(--spring),
     background 0.3s,
     box-shadow 0.3s,
     color 0.3s;
 }
 
 .page-nav::before {
-  background: linear-gradient(120deg, #b6e6bc25, #ddc89207);
-  box-shadow:
-    inset 0 0 20px #b6e6bc06,
-    0 0 25px #b6e6bc09;
+  background: linear-gradient(120deg, rgba(182, 230, 188, 0.145), rgba(221, 200, 146, 0.027));
+  box-shadow: rgba(182, 230, 188, 0.024) 0px 0px 20px inset, rgba(182, 230, 188, 0.035) 0px 0px 25px;
 }
 
 .page-nav > li:has(+ li .page-nav-link:hover) .page-nav-link,
@@ -71,21 +64,17 @@
 }
 
 .site-header.has-scrolled {
-  box-shadow: 0 12px 35px #0004;
+  box-shadow: rgba(0, 0, 0, 0.267) 0px 12px 35px;
 }
-
-/* The lamp is drawn in CSS: shade, bulb, pull cord and animated light cone. */
 
 body:is([data-page="login"], [data-page="signup"]) main {
   position: relative;
   isolation: isolate;
-  background:
-    radial-gradient(ellipse at 15% 20%, #b6e6bc0d, transparent 48%),
-    radial-gradient(ellipse at 90% 75%, #ddc8920a, transparent 45%);
+  background: radial-gradient(at 15% 20%, rgba(182, 230, 188, 0.05), transparent 48%), radial-gradient(at 90% 75%, rgba(221, 200, 146, 0.04), transparent 45%);
 }
 
 body:is([data-page="login"], [data-page="signup"]) .section-pad {
-  padding: 52px 0 76px;
+  padding: 52px 0px 76px;
 }
 
 .auth-layout {
@@ -95,18 +84,14 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   margin: auto;
   overflow: hidden;
   border-radius: 28px;
-  border: 1px solid #b6e6bc54;
-  box-shadow: 0 30px 90px #0006;
-  animation: room-arrival 0.9s var(--motion-ease) both;
-  transition:
-    border-color 0.6s,
-    box-shadow 0.6s;
+  border: 1px solid rgba(182, 230, 188, 0.33);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  animation: room-arrival 0.4s var(--motion-ease) both;
+  transition: border-color 0.6s, box-shadow 0.6s;
 }
 
 .auth-layout.lamp-on {
-  box-shadow:
-    0 30px 90px #0006,
-    0 0 65px #b6e6bc0b;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px, rgba(182, 230, 188, 0.043) 0px 0px 65px;
 }
 
 .auth-photo {
@@ -115,10 +100,7 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   justify-content: flex-end;
   min-height: 740px;
   padding: 40px;
-  background:
-    linear-gradient(0deg, #090a0b 0%, #090a0ba6 45%, #090a0bd9 100%),
-    url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1000&q=85")
-      center/cover;
+  background: linear-gradient(0deg, rgb(9, 10, 11) 0%, rgba(9, 10, 11, 0.65) 45%, rgba(9, 10, 11, 0.85) 100%), url("https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1000&q=85") center center / cover;
   overflow: hidden;
 }
 
@@ -129,9 +111,9 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .auth-photo::after {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0px;
   pointer-events: none;
-  background: radial-gradient(ellipse at 50% 15%, #b6e6bc24, transparent 65%);
+  background: radial-gradient(at 50% 15%, rgba(182, 230, 188, 0.14), transparent 65%);
   opacity: 1;
   transition: opacity 0.7s;
 }
@@ -146,7 +128,7 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 }
 
 .auth-photo .eyebrow {
-  margin: 0 0 16px;
+  margin: 0px 0px 16px;
   font-size: 9px;
 }
 
@@ -160,13 +142,13 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   font-size: 12px;
   line-height: 1.9;
   max-width: 310px;
-  color: #bacbc5;
+  color: rgb(186, 203, 197);
 }
 
 .lamp-scene {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   width: 100%;
   height: 440px;
   z-index: 2;
@@ -174,35 +156,33 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 
 .reading-lamp {
   position: absolute;
-  top: 0;
+  top: 0px;
   left: 50%;
   width: 180px;
   height: 300px;
   margin-left: -90px;
-  transform-origin: 50% 0;
-  animation: lamp-sway 7s ease-in-out infinite;
+  transform-origin: 50% 0px;
+  animation: 7s ease-in-out 0s infinite normal none running lamp-sway;
 }
 
 .lamp-wire {
   position: absolute;
   left: 89px;
-  top: 0;
+  top: 0px;
   width: 2px;
   height: 110px;
-  background: linear-gradient(#63766c, #b6e6bc);
+  background: linear-gradient(rgb(99, 118, 108), rgb(182, 230, 188));
 }
 
 .lamp-shade {
   position: absolute;
   top: 107px;
-  left: 0;
+  left: 0px;
   width: 180px;
   height: 90px;
   border-radius: 75px 75px 6px 6px;
-  background: linear-gradient(110deg, #527765, #b6e6bc 55%, #709683);
-  box-shadow:
-    inset 0 2px 1px #f5ffe799,
-    0 12px 35px #0006;
+  background: linear-gradient(110deg, rgb(82, 119, 101), rgb(182, 230, 188) 55%, rgb(112, 150, 131));
+  box-shadow: rgba(245, 255, 231, 0.6) 0px 2px 1px inset, rgba(0, 0, 0, 0.4) 0px 12px 35px;
   z-index: 3;
 }
 
@@ -214,11 +194,9 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   bottom: -4px;
   height: 9px;
   border-radius: 50%;
-  background: #e4e6bc;
-  box-shadow: 0 0 24px #ddc89299;
-  transition:
-    box-shadow 0.6s,
-    background 0.6s;
+  background: rgb(228, 230, 188);
+  box-shadow: rgba(221, 200, 146, 0.6) 0px 0px 24px;
+  transition: box-shadow 0.6s, background 0.6s;
 }
 
 .lamp-bulb {
@@ -228,8 +206,8 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   width: 28px;
   height: 22px;
   border-radius: 50%;
-  background: #fff4cb;
-  box-shadow: 0 0 45px 12px #ddc89277;
+  background: rgb(255, 244, 203);
+  box-shadow: rgba(221, 200, 146, 0.467) 0px 0px 45px 12px;
   z-index: 2;
 }
 
@@ -239,9 +217,9 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   left: -88px;
   width: 356px;
   height: 260px;
-  clip-path: polygon(25% 0, 75% 0, 100% 100%, 0 100%);
-  background: linear-gradient(#ddc89230, #b6e6bc0c 65%, transparent);
-  transform-origin: 50% 0;
+  clip-path: polygon(25% 0px, 75% 0px, 100% 100%, 0px 100%);
+  background: linear-gradient(rgba(221, 200, 146, 0.19), rgba(182, 230, 188, 0.047) 65%, transparent);
+  transform-origin: 50% 0px;
   transition: opacity 0.65s;
 }
 
@@ -251,10 +229,10 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   height: 340px;
   left: 50%;
   top: 65px;
-  translate: -50% 0;
+  translate: -50%;
   border-radius: 50%;
-  background: radial-gradient(circle, #ddc89215, transparent 65%);
-  animation: halo-breathe 4s ease-in-out infinite;
+  background: radial-gradient(circle, rgba(221, 200, 146, 0.082), transparent 65%);
+  animation: 4s ease-in-out 0s infinite normal none running halo-breathe;
   transition: opacity 0.6s;
 }
 
@@ -264,8 +242,8 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   top: 188px;
   width: 72px;
   height: 165px;
-  padding: 0;
-  border: 0;
+  padding: 0px;
+  border: 0px;
   background: none;
   color: var(--mint);
   cursor: pointer;
@@ -276,10 +254,10 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .pull-cord {
   position: absolute;
   left: 35px;
-  top: 0;
+  top: 0px;
   height: 98px;
   width: 1px;
-  background: linear-gradient(#ddc89244, #ddc892);
+  background: linear-gradient(rgba(221, 200, 146, 0.267), rgb(221, 200, 146));
   transition: height 0.35s var(--spring);
 }
 
@@ -289,12 +267,11 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   top: 96px;
   width: 11px;
   height: 18px;
-  border: 1px solid #ebd5a1;
+  border: 1px solid rgb(235, 213, 161);
   border-radius: 5px;
   background: var(--gold);
-  box-shadow: 0 0 17px #ddc89235;
-  transition:
-    top 0.35s var(--spring),
+  box-shadow: rgba(221, 200, 146, 0.208) 0px 0px 17px;
+  transition: top 0.35s var(--spring),
     box-shadow 0.3s;
 }
 
@@ -302,11 +279,9 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   position: absolute;
   top: 131px;
   left: 50%;
-  translate: -50% 0;
+  translate: -50%;
   width: 110px;
-  font:
-    600 8px/1.4 "Segoe UI",
-    sans-serif;
+  font: 600 8px / 1.4 "Segoe UI", sans-serif;
   letter-spacing: 0.16em;
   transition: top 0.35s var(--spring);
 }
@@ -314,10 +289,12 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .lamp-switch:hover .pull-cord {
   height: 110px;
 }
+
 .lamp-switch:hover .pull-knob {
   top: 108px;
-  box-shadow: 0 0 20px #ddc89299;
+  box-shadow: rgba(221, 200, 146, 0.6) 0px 0px 20px;
 }
+
 .lamp-switch:hover .pull-label {
   top: 143px;
 }
@@ -330,13 +307,11 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .lamp-caption {
   position: absolute;
   top: 390px;
-  left: 0;
-  right: 0;
+  left: 0px;
+  right: 0px;
   text-align: center;
-  font:
-    italic 17px Georgia,
-    serif;
-  color: #d3dfc5;
+  font: italic 17px Georgia, serif;
+  color: rgb(211, 223, 197);
   opacity: 0.8;
 }
 
@@ -347,12 +322,12 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 }
 
 .auth-layout:not(.lamp-on) .lamp-bulb {
-  background: #7d8471;
+  background: rgb(125, 132, 113);
   box-shadow: none;
 }
 
 .auth-layout:not(.lamp-on) .lamp-shade::after {
-  background: #8da28a;
+  background: rgb(141, 162, 138);
   box-shadow: none;
 }
 
@@ -364,8 +339,7 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 [data-page="signup"] .auth-form-panel {
   position: relative;
   padding: 40px 46px;
-  background:
-    radial-gradient(ellipse at 0 0, #b6e6bc09, transparent 65%), #16191c;
+  background: radial-gradient(at 0px 0px, rgba(182, 230, 188, 0.035), transparent 65%), rgb(22, 25, 28);
 }
 
 .auth-switch {
@@ -375,39 +349,37 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   align-self: flex-start;
   padding: 5px;
   margin-bottom: 32px;
-  border: 1px solid #b6e6bc26;
+  border: 1px solid rgba(182, 230, 188, 0.15);
   border-radius: 30px;
-  background: #0d0f11;
+  background: rgb(13, 15, 17);
   width: 230px;
   max-width: 100%;
 }
 
 .auth-switch a {
-  flex: 1;
+  flex: 1 1 0%;
   text-align: center;
   text-decoration: none;
   font-size: 12px;
   color: var(--text-soft);
   padding: 10px 14px;
   border-radius: 24px;
-  transition:
-    color 0.25s,
-    background 0.3s,
-    transform 0.3s;
+  transition: color 0.25s, background 0.3s, transform 0.3s;
 }
 
 .auth-switch a[aria-current] {
   background: var(--mint);
-  color: #12281d;
-  box-shadow: 0 3px 15px #b6e6bc18;
+  color: rgb(18, 40, 29);
+  box-shadow: rgba(182, 230, 188, 0.094) 0px 3px 15px;
 }
 
 .auth-switch a:hover {
   transform: translateY(-2px);
   color: var(--mint);
 }
+
 .auth-switch a[aria-current]:hover {
-  color: #12281d;
+  color: rgb(18, 40, 29);
 }
 
 .auth-form-panel h1,
@@ -435,9 +407,11 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .auth-form-panel form > :nth-child(2) {
   animation-delay: 0.08s;
 }
+
 .auth-form-panel form > :nth-child(3) {
   animation-delay: 0.16s;
 }
+
 .auth-form-panel form > :nth-child(4) {
   animation-delay: 0.24s;
 }
@@ -449,22 +423,17 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .auth-form-panel .form-control,
 .auth-form-panel .form-select {
   min-height: 55px;
-  border: 1px solid #b6e6bc30;
+  border: 1px solid rgba(182, 230, 188, 0.19);
   border-radius: 12px;
-  background-color: #0d0f11;
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s,
-    background 0.3s;
+  background-color: rgb(13, 15, 17);
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
 }
 
 .form-field:focus-within .form-control,
 .form-field:focus-within .form-select {
-  background-color: #202427;
+  background-color: rgb(32, 36, 39);
   border-color: var(--mint);
-  box-shadow:
-    0 0 0 4px #b6e6bc0c,
-    0 5px 22px #0002;
+  box-shadow: rgba(182, 230, 188, 0.047) 0px 0px 0px 4px, rgba(0, 0, 0, 0.133) 0px 5px 22px;
 }
 
 .form-field:focus-within label {
@@ -476,36 +445,32 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   border-radius: 12px;
   font-size: 13px;
   letter-spacing: 0.02em;
-  box-shadow: 0 8px 30px #b6e6bc0c;
+  box-shadow: rgba(182, 230, 188, 0.047) 0px 8px 30px;
 }
 
 .btn-mint::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    100deg,
-    transparent 25%,
-    #ffffff55 50%,
-    transparent 75%
-  );
-  translate: -110% 0;
+  inset: 0px;
+  background: linear-gradient(100deg, transparent 25%, rgba(255, 255, 255, 0.333) 50%, transparent 75%);
+  translate: -110%;
   pointer-events: none;
 }
 
 .btn-mint:hover::before,
 .btn-mint:focus-visible::before {
-  animation: button-shine 0.8s ease-out;
+  animation: 0.8s ease-out 0s 1 normal none running button-shine;
 }
 
 .password-tools {
-  margin: 0 0 20px;
+  margin: 0px 0px 20px;
 }
+
 .session-note {
-  margin-top: 22px !important;
   font-size: 10px;
   line-height: 1.8;
   max-width: 350px;
+  margin-top: 22px !important;
 }
 
 .auth-footer {
@@ -516,22 +481,22 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .form-completion {
   display: flex;
   gap: 5px;
-  margin: 5px 0 8px;
+  margin: 5px 0px 8px;
 }
+
 .form-completion span {
-  flex: 1;
+  flex: 1 1 0%;
   height: 3px;
-  background: #b6e6bc19;
+  background: rgba(182, 230, 188, 0.098);
   border-radius: 10px;
-  transition:
-    background 0.3s,
-    box-shadow 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .form-completion span.complete {
   background: var(--mint);
-  box-shadow: 0 0 12px #b6e6bc35;
+  box-shadow: rgba(182, 230, 188, 0.208) 0px 0px 12px;
 }
+
 .completion-label {
   color: var(--text-soft);
   font-size: 10px;
@@ -540,17 +505,16 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 
 .form-status.status-success {
   border-radius: 12px;
-  box-shadow: 0 0 25px #b6e6bc10;
+  box-shadow: rgba(182, 230, 188, 0.063) 0px 0px 25px;
 }
 
 .field-error:not(:empty) {
-  animation: field-feedback 0.4s ease-out;
-}
-.is-invalid {
-  animation: field-nudge 0.35s ease-out;
+  animation: 0.4s ease-out 0s 1 normal none running field-feedback;
 }
 
-/* Site-wide atmosphere and interaction feedback. */
+.is-invalid {
+  animation: 0.35s ease-out 0s 1 normal none running field-nudge;
+}
 
 .midnight-hero,
 .page-hero {
@@ -566,19 +530,18 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   inset: -40%;
   z-index: -1;
   pointer-events: none;
-  background:
-    radial-gradient(ellipse at 30% 40%, #b6e6bc0a, transparent 35%),
-    radial-gradient(ellipse at 65% 65%, #ddc8920b, transparent 35%);
-  animation: aurora-drift 16s ease-in-out infinite alternate;
+  background: radial-gradient(at 30% 40%, rgba(182, 230, 188, 0.04), transparent 35%), radial-gradient(at 65% 65%, rgba(221, 200, 146, 0.043), transparent 35%);
+  animation: 16s ease-in-out 0s infinite alternate none running aurora-drift;
 }
 
 .hero-photo img {
-  animation: library-drift 18s ease-in-out infinite alternate;
+  animation: 18s ease-in-out 0s infinite alternate none running library-drift;
 }
 
 .floating-note {
-  animation: note-float 6s ease-in-out infinite;
+  animation: 6s ease-in-out 0s infinite normal none running note-float;
 }
+
 .note-bottom {
   animation-delay: -3s;
 }
@@ -587,20 +550,21 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
   content: "";
   position: absolute;
   inset: -14px 7px;
-  border: 1px dashed #b6e6bc20;
+  border: 1px dashed rgba(182, 230, 188, 0.125);
   border-radius: 49% 49% 18px 18px;
   pointer-events: none;
-  animation: halo-breathe 6s ease-in-out infinite;
+  animation: 6s ease-in-out 0s infinite normal none running halo-breathe;
 }
 
 .hero-intro h1,
 .page-hero h1 {
-  animation: headline-arrival 0.9s var(--motion-ease) both;
+  animation: headline-arrival 0.4s var(--motion-ease) both;
 }
 
 .hero-stat-row > div {
   transition: transform 0.4s var(--spring);
 }
+
 .hero-stat-row > div:hover {
   transform: translateY(-5px);
 }
@@ -613,8 +577,7 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .photo-story {
   position: relative;
   isolation: isolate;
-  transition:
-    transform 0.4s var(--motion-ease),
+  transition: transform 0.4s var(--motion-ease),
     box-shadow 0.4s,
     border-color 0.4s;
 }
@@ -626,7 +589,7 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .plan-stat::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: 0px;
   border-radius: inherit;
   pointer-events: none;
   background: radial-gradient(
@@ -651,38 +614,31 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 .library-card .card-actions {
   transition: translate 0.4s var(--motion-ease);
 }
+
 .library-card:hover .card-meta {
-  translate: 3px 0;
+  translate: 3px;
 }
 
 .library-card:hover .card-actions {
-  translate: 0 -3px;
-}
-
-.motion-arrival.is-revealed {
-  animation: section-arrival 0.8s var(--motion-ease) both;
-  animation-delay: var(--arrival-delay, 0ms);
+  translate: 0px -3px;
 }
 
 .data-table-shell {
-  transition:
-    border-color 0.4s,
-    box-shadow 0.4s;
+  transition: border-color 0.4s, box-shadow 0.4s;
 }
+
 .data-table-shell:focus-within {
-  border-color: #b6e6bc77;
-  box-shadow: 0 0 0 4px #b6e6bc06;
+  border-color: rgba(182, 230, 188, 0.467);
+  box-shadow: rgba(182, 230, 188, 0.024) 0px 0px 0px 4px;
 }
 
 .knowledge-table tbody tr {
-  animation: none;
-  transition:
-    background 0.3s,
-    box-shadow 0.3s;
+  animation: auto ease 0s 1 normal none running none;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 .knowledge-table tbody tr:hover {
-  background: #b6e6bc0d;
+  background: rgba(182, 230, 188, 0.05);
   box-shadow: inset 3px 0 var(--mint);
 }
 
@@ -691,21 +647,19 @@ body:is([data-page="login"], [data-page="signup"]) .section-pad {
 }
 
 .table-sort::after {
-  transition:
-    transform 0.35s var(--spring),
+  transition: transform 0.35s var(--spring),
     color 0.3s;
 }
+
 th[aria-sort="descending"] .table-sort::after {
   transform: rotate(180deg);
   color: var(--mint);
 }
 
 .task-item {
-  transition:
-    border-color 0.3s,
-    background 0.3s,
-    transform 0.3s;
+  transition: border-color 0.3s, background 0.3s, transform 0.3s;
 }
+
 .task-item:hover {
   transform: translateX(4px);
 }
@@ -717,34 +671,35 @@ progress::-webkit-progress-value {
 .timer-ring {
   transition: box-shadow 0.5s;
 }
+
 .timer-ring:has(+ .timer-actions #timer-start):hover {
-  box-shadow: 0 0 50px #b6e6bc19;
+  box-shadow: rgba(182, 230, 188, 0.098) 0px 0px 50px;
 }
 
 .footer-links a {
   width: fit-content;
   position: relative;
-  transition:
-    translate 0.3s,
-    color 0.3s;
+  transition: translate 0.3s, color 0.3s;
 }
+
 .footer-links a:hover {
-  translate: 5px 0;
+  translate: 5px;
   color: var(--mint);
 }
 
 .footer-links a::after {
   content: "";
   position: absolute;
-  left: 0;
-  right: 0;
+  left: 0px;
+  right: 0px;
   bottom: -3px;
   height: 1px;
   background: var(--mint);
   transform: scaleX(0);
-  transform-origin: left;
+  transform-origin: left center;
   transition: transform 0.3s;
 }
+
 .footer-links a:hover::after {
   transform: scaleX(1);
 }
@@ -752,9 +707,7 @@ progress::-webkit-progress-value {
 @media (hover: hover) and (pointer: fine) {
   .page-nav-link:hover {
     transform: translateY(-6px) scale(1.16);
-    box-shadow:
-      0 12px 30px #0006,
-      0 0 22px #b6e6bc1c;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 12px 30px, rgba(182, 230, 188, 0.11) 0px 0px 22px;
   }
 
   .feature-card:hover,
@@ -762,15 +715,15 @@ progress::-webkit-progress-value {
   .library-card:hover {
     transform: perspective(1000px) translateY(-10px)
       rotateX(var(--card-rx, 0deg)) rotateY(var(--card-ry, 0deg));
-    box-shadow: 0 25px 55px #0005;
+    box-shadow: rgba(0, 0, 0, 0.333) 0px 25px 55px;
   }
 }
 
 @keyframes lamp-sway {
-  0%,
-  100% {
+  0%, 100% {
     rotate: -2deg;
   }
+
   50% {
     rotate: 2deg;
   }
@@ -784,93 +737,97 @@ progress::-webkit-progress-value {
 }
 
 @keyframes room-arrival {
-  from {
+  0% {
     opacity: 0;
     transform: perspective(1400px) rotateX(3deg) translateY(24px);
   }
-  to {
+
+  100% {
     opacity: 1;
     transform: none;
   }
 }
 
 @keyframes form-arrival {
-  from {
+  0% {
     opacity: 0;
-    translate: 20px 0;
+    translate: 20px;
   }
-  to {
+
+  100% {
     opacity: 1;
-    translate: 0 0;
+    translate: 0px;
   }
 }
 
 @keyframes headline-arrival {
-  from {
+  0% {
     opacity: 0;
-    translate: 0 25px;
-    clip-path: inset(0 0 100% 0);
+    translate: 0px 10px;
   }
-  to {
+
+  100% {
     opacity: 1;
-    translate: 0 0;
-    clip-path: inset(0);
+    translate: 0px;
   }
 }
 
 @keyframes section-arrival {
-  from {
+  0% {
     opacity: 0;
-    translate: 0 35px;
+    translate: 0px 35px;
     scale: 0.98;
   }
-  to {
+
+  100% {
     opacity: 1;
-    translate: 0 0;
+    translate: 0px;
     scale: 1;
   }
 }
 
 @keyframes field-feedback {
-  from {
+  0% {
     opacity: 0;
-    translate: 0 -4px;
+    translate: 0px -4px;
   }
-  to {
+
+  100% {
     opacity: 1;
-    translate: 0 0;
+    translate: 0px;
   }
 }
 
 @keyframes field-nudge {
   25% {
-    translate: -3px 0;
+    translate: -3px;
   }
+
   75% {
-    translate: 3px 0;
+    translate: 3px;
   }
 }
 
 @keyframes button-shine {
-  to {
-    translate: 110% 0;
+  100% {
+    translate: 110%;
   }
 }
 
 @keyframes note-float {
   50% {
-    translate: 0 -10px;
+    translate: 0px -10px;
   }
 }
 
 @keyframes library-drift {
-  to {
+  100% {
     transform: scale(1.075) translateY(-5px);
   }
 }
 
 @keyframes aurora-drift {
-  to {
+  100% {
     transform: translate(6%, -4%) rotate(12deg);
   }
 }
@@ -879,13 +836,16 @@ progress::-webkit-progress-value {
   .flat-nav > .container {
     gap: 18px;
   }
+
   .page-nav-link {
     padding: 12px 14px;
   }
+
   .auth-form-panel,
   [data-page="signup"] .auth-form-panel {
     padding: 34px;
   }
+
   .auth-photo {
     padding: 32px;
   }
@@ -895,15 +855,19 @@ progress::-webkit-progress-value {
   .page-nav {
     gap: 8px;
   }
+
   .page-nav-link {
     padding: 12px 4px;
   }
+
   .brand-copy {
     font-size: 28px;
   }
+
   .brand-copy span {
     font-size: 8px;
   }
+
   .brand-mark {
     width: 50px;
     height: 50px;
@@ -911,25 +875,30 @@ progress::-webkit-progress-value {
   }
 
   body:is([data-page="login"], [data-page="signup"]) .section-pad {
-    padding: 28px 0 45px;
+    padding: 28px 0px 45px;
   }
+
   .auth-layout {
     grid-template-columns: 1fr;
     border-radius: 22px;
   }
+
   .auth-photo {
     min-height: 300px;
     padding: 30px;
   }
+
   .auth-photo .auth-headline {
     font-size: 2rem;
     max-width: 190px;
-    margin: 50px 0 12px;
+    margin: 50px 0px 12px;
   }
+
   .auth-photo > p:last-of-type {
     max-width: 195px;
     font-size: 10px;
   }
+
   .auth-photo .eyebrow {
     display: none;
   }
@@ -940,43 +909,51 @@ progress::-webkit-progress-value {
     width: 170px;
     height: 280px;
   }
+
   .reading-lamp {
     scale: 0.62;
-    transform-origin: 50% 0;
+    transform-origin: 50% 0px;
   }
+
   .lamp-halo {
     width: 220px;
     height: 250px;
     top: 20px;
   }
+
   .lamp-switch {
     scale: 0.8;
-    transform-origin: 50% 0;
+    transform-origin: 50% 0px;
     left: calc(50% + 27px);
     top: 120px;
   }
+
   .lamp-caption {
     display: none;
   }
+
   .auth-photo-label {
     left: 27px;
     top: 26px;
     font-size: 7px;
   }
+
   .auth-form-panel,
   [data-page="signup"] .auth-form-panel {
     padding: 29px;
   }
+
   .auth-form-panel h1,
   [data-page="signup"] .auth-form-panel h1 {
     font-size: 2.2rem;
   }
+
   .auth-switch {
     margin-bottom: 27px;
   }
 
   .auth-photo::after {
-    background: radial-gradient(ellipse at 90% 0, #ddc89218, transparent 65%);
+    background: radial-gradient(at 90% 0px, rgba(221, 200, 146, 0.094), transparent 65%);
   }
 }
 
@@ -985,41 +962,34 @@ progress::-webkit-progress-value {
   [data-page="signup"] .auth-form-panel {
     padding: 25px;
   }
+
   .auth-photo {
     padding: 25px;
   }
+
   .auth-photo > p:last-of-type {
     max-width: 155px;
   }
+
   .auth-photo .auth-headline {
     max-width: 180px;
     font-size: 1.9rem;
   }
+
   .lamp-scene {
     right: 8px;
   }
+
   .lamp-switch {
     left: calc(50% + 6px);
   }
+
   .page-nav-link {
     font-size: 11px;
   }
 }
 
-html[data-motion="off"]
-  :is(
-    .reading-lamp,
-    .lamp-halo,
-    .floating-note,
-    .hero-photo img,
-    .hero-stat-row > div,
-    .auth-layout,
-    .motion-arrival,
-    .footer-links a,
-    .library-card .card-meta,
-    .library-card .card-actions,
-    .task-item
-  ) {
+html[data-motion="off"] :is(.reading-lamp, .lamp-halo, .floating-note, .hero-photo img, .hero-stat-row > div, .auth-layout, .motion-arrival, .footer-links a, .library-card .card-meta, .library-card .card-actions, .task-item) {
   transform: none !important;
   translate: none !important;
   rotate: none !important;
@@ -1027,19 +997,7 @@ html[data-motion="off"]
 }
 
 @media (prefers-reduced-motion: reduce) {
-  :is(
-    .reading-lamp,
-    .lamp-halo,
-    .floating-note,
-    .hero-photo img,
-    .hero-stat-row > div,
-    .auth-layout,
-    .motion-arrival,
-    .footer-links a,
-    .library-card .card-meta,
-    .library-card .card-actions,
-    .task-item
-  ) {
+  :is(.reading-lamp, .lamp-halo, .floating-note, .hero-photo img, .hero-stat-row > div, .auth-layout, .motion-arrival, .footer-links a, .library-card .card-meta, .library-card .card-actions, .task-item) {
     transform: none !important;
     translate: none !important;
     rotate: none !important;
@@ -1047,12 +1005,8 @@ html[data-motion="off"]
   }
 }
 
-/* Lights-out is the initial account state, not a saved light/dark-mode feature. */
-
 body:is([data-page="login"], [data-page="signup"]) {
-  transition:
-    background 0.65s,
-    color 0.65s;
+  transition: background 0.65s, color 0.65s;
 }
 
 body.auth-asleep {
@@ -1064,7 +1018,7 @@ body.auth-asleep {
 }
 
 .auth-asleep .site-header {
-  background: #0b0c0ef5;
+  background: rgba(11, 12, 14, 0.96);
 }
 
 .site-footer {
@@ -1072,11 +1026,10 @@ body.auth-asleep {
 }
 
 .auth-asleep .site-footer {
-  background: #090a0b;
+  background: rgb(9, 10, 11);
 }
 
 .auth-asleep .page-nav,
-.auth-asleep .motion-toggle,
 .auth-asleep .site-footer {
   filter: grayscale(1);
 }
@@ -1086,77 +1039,67 @@ body.auth-asleep {
 }
 
 .auth-asleep main {
-  background:
-    radial-gradient(ellipse at 50% 35%, #232529, transparent 65%), #08090a !important;
+  background: radial-gradient(at 50% 35%, rgb(35, 37, 41), transparent 65%), rgb(8, 9, 10) !important;
 }
 
 .auth-asleep .auth-layout {
-  border-color: #ffffff14;
-  box-shadow: 0 25px 80px #0009;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: rgba(0, 0, 0, 0.6) 0px 25px 80px;
 }
 
 .auth-layout:not(.lamp-on) .auth-photo {
-  background: radial-gradient(
-    ellipse at 50% 18%,
-    #24272a 0%,
-    #111315 45%,
-    #090a0b 85%
-  );
+  background: radial-gradient(at 50% 18%, rgb(36, 39, 42) 0%, rgb(17, 19, 21) 45%, rgb(9, 10, 11) 85%);
 }
 
 .auth-layout:not(.lamp-on) .auth-form-panel {
-  background: linear-gradient(145deg, #17191c, #0c0d0f);
+  background: linear-gradient(145deg, rgb(23, 25, 28), rgb(12, 13, 15));
 }
 
 .auth-photo > p,
 .auth-photo-label {
-  transition:
-    opacity 0.55s,
-    translate 0.55s;
+  transition: opacity 0.55s, translate 0.55s;
 }
 
 .auth-layout:not(.lamp-on) .auth-photo > p,
 .auth-layout:not(.lamp-on) .auth-photo-label {
   opacity: 0;
   visibility: hidden;
-  translate: 0 10px;
+  translate: 0px 10px;
 }
 
 .auth-layout:not(.lamp-on) .reading-lamp {
-  animation: none;
+  animation: auto ease 0s 1 normal none running none;
 }
 
 .auth-layout:not(.lamp-on) .lamp-shade {
-  background: linear-gradient(110deg, #2f3337, #666c71 55%, #34393d);
-  box-shadow:
-    inset 0 1px #ffffff38,
-    0 15px 30px #0008;
+  background: linear-gradient(110deg, rgb(47, 51, 55), rgb(102, 108, 113) 55%, rgb(52, 57, 61));
+  box-shadow: rgba(255, 255, 255, 0.22) 0px 1px inset, rgba(0, 0, 0, 0.533) 0px 15px 30px;
 }
 
 .auth-layout:not(.lamp-on) .lamp-shade::after {
-  background: #53585c;
+  background: rgb(83, 88, 92);
 }
 
 .auth-layout:not(.lamp-on) .lamp-bulb {
-  background: #6a7075;
+  background: rgb(106, 112, 117);
 }
 
 .auth-layout:not(.lamp-on) .lamp-wire {
-  background: linear-gradient(#363b3f, #747c82);
+  background: linear-gradient(rgb(54, 59, 63), rgb(116, 124, 130));
 }
 
 .auth-layout:not(.lamp-on) .pull-cord {
-  background: linear-gradient(#adb5bc22, #bcc4ca);
+  background: linear-gradient(rgba(173, 181, 188, 0.133), rgb(188, 196, 202));
 }
 
 .auth-layout:not(.lamp-on) .pull-knob {
-  border-color: #d9dfe4;
-  background: #aab4bd;
-  box-shadow: 0 0 14px #dce8f018;
+  border-color: rgb(217, 223, 228);
+  background: rgb(170, 180, 189);
+  box-shadow: rgba(220, 232, 240, 0.094) 0px 0px 14px;
 }
 
 .auth-layout:not(.lamp-on) .lamp-caption {
-  color: #959da5;
+  color: rgb(149, 157, 165);
 }
 
 .lamp-shade,
@@ -1164,9 +1107,7 @@ body.auth-asleep {
 .lamp-wire,
 .auth-photo,
 .auth-form-panel {
-  transition:
-    background 0.65s,
-    box-shadow 0.65s;
+  transition: background 0.65s, box-shadow 0.65s;
 }
 
 .auth-details {
@@ -1195,16 +1136,14 @@ body.auth-asleep {
 
 .lamp-invitation {
   position: absolute;
-  inset: 0;
+  inset: 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 40px;
   text-align: center;
-  transition:
-    opacity 0.3s,
-    visibility 0.3s;
+  transition: opacity 0.3s, visibility 0.3s;
 }
 
 .lamp-on .lamp-invitation {
@@ -1215,37 +1154,35 @@ body.auth-asleep {
 
 .invitation-spark {
   font-size: 32px;
-  color: #747e85;
+  color: rgb(116, 126, 133);
   margin-bottom: 28px;
 }
 
 .invitation-kicker {
-  color: #969fa7;
+  color: rgb(150, 159, 167);
   letter-spacing: 0.22em;
   font-size: 8px;
   margin-bottom: 22px;
 }
 
 .lamp-invitation .invitation-title {
-  color: #c9cdd0;
-  font:
-    400 clamp(2rem, 3.3vw, 2.8rem)/1.15 Georgia,
-    serif;
+  color: rgb(201, 205, 208);
+  font: 400 clamp(2rem, 3.3vw, 2.8rem) / 1.15 Georgia, serif;
   margin-bottom: 24px;
 }
 
 .lamp-invitation > p:last-of-type {
-  color: #919aa2;
+  color: rgb(145, 154, 162);
   font-size: 12px;
   max-width: 260px;
   line-height: 1.8;
 }
 
 .invitation-arrow {
-  color: #a2aab0;
+  color: rgb(162, 170, 176);
   font-size: 30px;
   margin-top: 10px;
-  animation: invitation-nudge 3s ease-in-out infinite;
+  animation: 3s ease-in-out 0s infinite normal none running invitation-nudge;
 }
 
 .lamp-switch {
@@ -1269,31 +1206,26 @@ body.auth-asleep {
 }
 
 @keyframes light-reveal {
-  from {
+  0% {
     opacity: 0;
-    translate: 0 14px;
+    translate: 0px 14px;
     filter: blur(4px);
   }
-  to {
+
+  100% {
     opacity: 1;
-    translate: 0 0;
-    filter: blur(0);
+    translate: 0px;
+    filter: blur(0px);
   }
 }
 
 @keyframes invitation-nudge {
   50% {
-    translate: -8px 0;
+    translate: -8px;
   }
 }
 
-/* A single, continuous twenty-second revolution, with a matching perimeter glow. */
-
-@property --hero-light-angle {
-  syntax: "<angle>";
-  initial-value: 0deg;
-  inherits: false;
-}
+@property --hero-light-angle { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
 
 .hero-light-sweep {
   position: absolute;
@@ -1304,17 +1236,10 @@ body.auth-asleep {
   z-index: 3;
   pointer-events: none;
   mix-blend-mode: screen;
-  background: conic-gradient(
-    from 0deg at 50% 50%,
-    transparent 0deg 270deg,
-    #dce6e608 295deg,
-    #fff0ce22 320deg,
-    #d2e9dd12 333deg,
-    transparent 350deg
-  );
-  mask-image: radial-gradient(ellipse, #000 20%, #0009 50%, transparent 72%);
+  background: conic-gradient(transparent 0deg, transparent 270deg, rgba(220, 230, 230, 0.03) 295deg, rgba(255, 240, 206, 0.133) 320deg, rgba(210, 233, 221, 0.07) 333deg, transparent 350deg);
+  mask-image: radial-gradient(rgb(0, 0, 0) 20%, rgba(0, 0, 0, 0.6) 50%, transparent 72%);
   transform-origin: 50% 50%;
-  animation: hero-light-circle 20s linear infinite;
+  animation: 20s linear 0s infinite normal none running hero-light-circle;
 }
 
 .hero-light-ring {
@@ -1332,21 +1257,18 @@ body.auth-asleep {
     #b6e6bc88 337deg,
     transparent 355deg
   );
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  animation: hero-ring-circle 20s linear infinite;
+  mask: linear-gradient(rgb(0, 0, 0) 0px, rgb(0, 0, 0) 0px) content-box exclude, linear-gradient(rgb(0, 0, 0) 0px, rgb(0, 0, 0) 0px);
+  animation: 20s linear 0s infinite normal none running hero-ring-circle;
 }
 
 @keyframes hero-light-circle {
-  to {
+  100% {
     transform: rotate(360deg);
   }
 }
 
 @keyframes hero-ring-circle {
-  to {
+  100% {
     --hero-light-angle: 360deg;
   }
 }
@@ -1362,8 +1284,8 @@ body.auth-asleep {
 
   .auth-layout:not(.lamp-on) .lamp-scene {
     width: 100%;
-    left: 0;
-    right: 0;
+    left: 0px;
+    right: 0px;
   }
 
   .auth-layout:not(.lamp-on) .lamp-switch {
@@ -1381,19 +1303,23 @@ body.auth-asleep {
   .lamp-invitation {
     padding: 28px;
   }
+
   .invitation-spark {
     margin-bottom: 14px;
   }
+
   .invitation-kicker {
     margin-bottom: 14px;
   }
+
   .lamp-invitation .invitation-title {
     font-size: 1.85rem;
     margin-bottom: 16px;
   }
+
   .invitation-arrow {
     rotate: 90deg;
-    margin-top: 0;
+    margin-top: 0px;
   }
 
   .hero-light-ring {
