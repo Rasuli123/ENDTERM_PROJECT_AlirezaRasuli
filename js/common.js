@@ -244,6 +244,7 @@ window.HubUI = (() => {
     if (close) close.closest("dialog").close();
   });
   window.addEventListener("hub:bookmarks", refreshBookmarks);
+  window.addEventListener("hub:resources", refreshBookmarks);
   function storageNotice(message) {
     const warning = document.getElementById("storage-warning");
     if (warning) {
@@ -258,18 +259,32 @@ window.HubUI = (() => {
   window.addEventListener("hub:storage-ready", () => storageNotice(""));
   function accountUI() {
     const user = HubStore.current();
+    document.body.dataset.role = user?.role || "guest";
+    const dashboardLink = document.querySelector('#mainNav a[href="dashboard.html"]');
+    const profileLink = document.querySelector('#mainNav a[href="profile.html"]');
+    if (dashboardLink) dashboardLink.textContent = user?.role === "admin" ? "Admin dashboard" : "Dashboard";
+    if (profileLink) profileLink.textContent = user?.role === "admin" ? "Staff profile" : "Profile";
+    // Study planning belongs to readers; hide its navigation slot and all entry links for staff.
+    document.querySelectorAll('a[href^="study-plan.html"]').forEach(link => {
+      const target = link.classList.contains("page-nav-link") ? link.closest("li") : link;
+      target.hidden = user?.role === "admin";
+    });
     document
       .querySelectorAll("[data-guest-only]")
-      .forEach((n) => (n.hidden = !!user));
+      .forEach((n) => (n.hidden = !!user && !n.querySelector('[aria-current="page"]')));
     document
       .querySelectorAll("[data-member-only]")
       .forEach((n) => (n.hidden = !user));
     document
       .querySelectorAll("[data-user-name]")
       .forEach((n) => (n.textContent = user?.name || "Guest learner"));
+    document.querySelectorAll("[data-admin-only]").forEach(node => node.hidden = user?.role !== "admin");
+    document.querySelectorAll("[data-user-first-name]").forEach(node => node.textContent = user?.name.split(" ")[0] || "My profile");
+    requestAnimationFrame(() => window.dispatchEvent(new Event("resize")));
     refreshBookmarks();
     storageNotice(HubStore.storageMessage);
   }
+  accountUI();
   HubStore.ready.then(accountUI);
   window.addEventListener("hub:account", accountUI);
   document.querySelectorAll("[data-accordion]").forEach((button) => {
