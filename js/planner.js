@@ -2,11 +2,20 @@
 (async () => {
   if (!document.getElementById("planner-form")) return;
   await HubStore.ready;
+  function redirectAdministrator() {
+    if (HubStore.current()?.role !== "admin") return false;
+    document.querySelector("main").hidden = true;
+    location.replace("dashboard.html");
+    return true;
+  }
+  window.addEventListener("hub:account", redirectAdministrator);
+  if (redirectAdministrator()) return;
   const UI = HubUI,
     form = document.getElementById("planner-form"),
     list = document.getElementById("task-list");
   form.elements.taskDate.min = UI.dateToday();
   function render() {
+    if (HubStore.current()?.role === "admin") return;
     const tasks = HubStore.tasks(),
       done = tasks.filter((t) => t.done),
       minutes = tasks.reduce((sum, t) => sum + t.minutes, 0),
@@ -25,7 +34,7 @@
     document.getElementById("export-plan").disabled = tasks.length === 0;
     list.replaceChildren();
     tasks
-      .sort((a, b) => a.date.localeCompare(b.date))
+      .sort((a, b) => (a.date + (a.time || "23:59")).localeCompare(b.date + (b.time || "23:59")))
       .forEach((task) => {
         const item = UI.el("li", "task-item" + (task.done ? " task-done" : ""));
         const label = UI.el("label", "task-check");
@@ -56,6 +65,7 @@
             task.subject +
               " · " +
               UI.formatDate(task.date) +
+              (task.time ? " at " + task.time : "") +
               " · " +
               task.minutes +
               " min",
@@ -80,7 +90,7 @@
         list.append(item);
       });
     document.getElementById("planner-owner").textContent = HubStore.current()
-      ? "Plan for " + HubStore.current().name + " · kept for this tab session"
+      ? "Plan for " + HubStore.current().name + " · saved in this browser"
       : "Log in to save your study plan and track progress.";
   }
   UI.bindForm(
@@ -104,6 +114,7 @@
         !v || !Number.isInteger(Number(v)) || Number(v) < 5 || Number(v) > 180
           ? "Choose a whole number from 5 to 180 minutes."
           : "",
+      taskTime: value => !value || /^([01]\d|2[0-3]):[0-5]\d$/.test(value) ? "" : "Choose a valid time.",
     },
     async (data, f) => {
       await HubStore.saveTasks([
@@ -113,6 +124,7 @@
           title: String(data.get("taskTitle")).trim(),
           subject: String(data.get("taskSubject")),
           date: String(data.get("taskDate")),
+          time: String(data.get("taskTime") || ""),
           minutes: Number(data.get("taskMinutes")),
           done: false,
         },
@@ -131,11 +143,12 @@
         .replaceAll('"', '""') +
       '"';
     const csv = [
-      ["Session", "Subject", "Date", "Minutes", "Status"],
+      ["Session", "Subject", "Date", "Start time", "Minutes", "Status"],
       ...HubStore.tasks().map((t) => [
         t.title,
         t.subject,
         t.date,
+        t.time || "",
         t.minutes,
         t.done ? "Complete" : "Planned",
       ]),
@@ -153,6 +166,7 @@
     UI.toast("Your plan has been exported.");
   });
   window.addEventListener("hub:tasks", render);
+  window.addEventListener("hub:account", render);
   render();
   // Use wall-clock time instead of counting ticks, so background tabs stay accurate.
   const duration = document.getElementById("focus-duration"),
@@ -182,6 +196,18 @@
         ? "Start focus"
         : "Resume focus";
     duration.disabled = running;
+    document.querySelectorAll("[data-duration]").forEach(button => {
+      button.disabled = running;
+      button.setAttribute("aria-pressed", String(Number(button.dataset.duration) === Number(duration.value)));
+    });
+  }
+  function validDuration() {
+    const value = Number(duration.value);
+    const valid = duration.value !== "" && Number.isInteger(value) && value >= 1 && value <= 180;
+    document.getElementById("duration-error").textContent = valid ? "" : "Enter a whole number from 1 to 180 minutes.";
+    if (valid) duration.removeAttribute("aria-invalid");
+    else duration.setAttribute("aria-invalid", "true");
+    return valid;
   }
   function tick() {
     remaining = Math.max(0, (deadline - Date.now()) / 1000);
@@ -196,6 +222,7 @@
     paint();
   }
   start.addEventListener("click", () => {
+    if (!validDuration()) { duration.focus(); return; }
     if (running) {
       remaining = Math.max(0, (deadline - Date.now()) / 1000);
       running = false;
@@ -210,6 +237,7 @@
     paint();
   });
   function resetTimer() {
+    if (!validDuration()) { duration.focus(); return; }
     clearInterval(interval);
     running = false;
     remaining = Number(duration.value) * 60;
@@ -218,7 +246,15 @@
     paint();
   }
   duration.addEventListener("change", resetTimer);
+  duration.addEventListener("input", () => { if (validDuration()) resetTimer(); });
+  document.querySelectorAll("[data-duration]").forEach(button => button.addEventListener("click", () => {
+    duration.value = button.dataset.duration;
+    resetTimer();
+  }));
   reset.addEventListener("click", resetTimer);
   window.addEventListener("pagehide", () => clearInterval(interval));
+  window.addEventListener("pageshow", () => {
+    if (running) { clearInterval(interval); tick(); if (running) interval = setInterval(tick, 250); }
+  });
   paint();
 })();
