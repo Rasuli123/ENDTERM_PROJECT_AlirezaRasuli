@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Manage the browser-local learning collection and view registered members.">
+    <title>Rasuli’s Knowledge Hub | Administrator</title>
+    <script src="js/theme.js?v=final-5"></script>
+    <script src="js/tab-state.js?v=final-5"></script>
+    <script src="js/navigation.js?v=final-5"></script>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta name="theme-color" content="#090a0b">
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css?v=final-5">
+    <link rel="stylesheet" href="css/endterm.css?v=final-5">
+    <link rel="stylesheet" href="css/midnight.css?v=final-5">
+    <link rel="stylesheet" href="css/motion.css?v=final-5">
+    <link rel="stylesheet" href="css/cinematic.css?v=final-5">
+    <link rel="stylesheet" href="css/final.css?v=final-5">
+    <link rel="stylesheet" href="css/navigation.css?v=final-5">
+  </head>
+  <body data-page="administrator">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header flat-header">
+      <nav class="site-nav flat-nav" aria-label="Main navigation">
+        <div class="container">
+          <div class="brand-row">
+            <a class="navbar-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-copy">Rasuli’s<span>KNOWLEDGE HUB</span>
+              </span>
+            </a>
+            <div class="nav-tools">
+              <a class="member-link" href="profile.html" data-member-only hidden>
+                <span class="member-dot" aria-hidden="true"></span>
+                <span data-user-first-name>My profile</span>
+              </a>
+              <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+                <span data-theme-icon aria-hidden="true">☾</span>
+                <span data-theme-label>Dark</span>
+              </button>
+              <button class="flat-signout" type="button" data-logout data-member-only hidden>Log out</button>
+            </div>
+          </div>
+          <ul class="page-nav" id="mainNav">
+            <li>
+              <a class="page-nav-link" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="about.html">About</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="subjects.html">Subjects</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="resources.html">Resources</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="study-plan.html">Study plan</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="dashboard.html">Dashboard</a>
+            </li>
+            <li data-member-only hidden>
+              <a class="page-nav-link" href="profile.html">Profile</a>
+            </li>
+            <li data-admin-only hidden>
+              <a class="page-nav-link" href="administrator.html" aria-current="page">Administrator</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link" href="login.html">Log in</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link page-nav-signup" href="contact.html">Sign up</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="storage-warning" id="storage-warning" role="status" hidden>
+      <div class="container" data-storage-message></div>
+    </div>
+    <noscript>
+      <p class="storage-warning">Enable JavaScript to use accounts, saved resources and interactive features.</p>
+    </noscript>
+    <main class="page-shell" id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow">LIBRARY DESK</p>
+          <h1>Care for<br>
+            <em>the collection.</em>
+          </h1>
+          <p>Keep the learning library useful, clear and current.</p>
+        </div>
+      </section>
+      <section class="section-pad" id="admin-guest">
+        <div class="container">
+          <div class="empty-state">
+            <h2>Administrator access</h2>
+            <p>This workspace is available to the project’s administrator account.</p>
+            <a class="btn btn-mint" href="profile.html">View my profile</a>
+          </div>
+        </div>
+      </section>
+      <div id="admin-content" hidden>
+        <section class="section-pad-sm">
+          <div class="container">
+            <p class="demo-note">Front-end demo: these controls update this browser’s collection. Browser-side roles are not secure access control.</p>
+            <div class="admin-layout">
+              <div class="profile-editor">
+                <p class="eyebrow">CURATE THE NEXT GOOD READ</p>
+                <h2 id="resource-editor-title">Add a resource</h2>
+                <form id="resource-editor" novalidate>
+                  <input type="hidden" name="resourceId">
+                  <div class="row g-3">
+                    <div class="col-12">
+                      <label for="edit-title">Title</label>
+                      <input class="form-control" id="edit-title" name="title" required minlength="3" maxlength="120">
+                    </div>
+                    <div class="col-12">
+                      <label for="edit-author">Author or organisation</label>
+                      <input class="form-control" id="edit-author" name="author" required maxlength="120">
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="edit-category">Subject</label>
+                      <select class="form-select" id="edit-category" name="category" required>
+                        <option value="">Choose a subject</option>
+                      </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="edit-type">Format</label>
+                      <select class="form-select" id="edit-type" name="type" required>
+                        <option value="Book">Book</option>
+                        <option value="Reference">Online reference</option>
+                        <option value="Practice">Online practice</option>
+                      </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="edit-year">Year published</label>
+                      <input class="form-control" id="edit-year" name="year" type="number" min="1000" max="2100" required>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="edit-minutes">Study block (minutes)</label>
+                      <input class="form-control" id="edit-minutes" name="minutes" type="number" min="5" max="180" step="1" required>
+                    </div>
+                    <div class="col-12">
+                      <label for="edit-level">Level</label>
+                      <select class="form-select" id="edit-level" name="level" required>
+                        <option value="Beginner">Beginner</option>
+                        <option value="Intermediate">Intermediate</option>
+                        <option value="Advanced">Advanced</option>
+                        <option value="All levels">All levels</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label for="edit-url">Resource link</label>
+                      <input class="form-control" id="edit-url" name="url" type="url" placeholder="https://" required maxlength="1000">
+                    </div>
+                    <div class="col-12">
+                      <label for="edit-description">Short description</label>
+                      <textarea class="form-control" id="edit-description" name="description" required minlength="10" maxlength="360" rows="3"></textarea>
+                    </div>
+                  </div>
+                  <div class="editor-actions">
+                    <button class="btn btn-mint" type="submit">Save resource</button>
+                    <button class="btn btn-outline-mint" id="cancel-resource-edit" type="button" hidden>Cancel edit</button>
+                  </div>
+                  <p class="form-status" role="status" aria-live="polite"></p>
+                </form>
+              </div>
+              <div>
+                <div class="section-heading-row">
+                  <h2>Current collection</h2>
+                  <span class="pill" id="admin-resource-count"></span>
+                </div>
+                <label for="admin-search">Search the collection</label>
+                <input class="form-control" id="admin-search" type="search" placeholder="Title, author or subject">
+                <div id="admin-resources" class="admin-resources"></div>
+                <p id="admin-empty" class="empty-state" hidden>No matching resources. Try another word.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-pad-sm" id="add-member">
+          <div class="container">
+            <div class="member-create-layout">
+              <div><p class="eyebrow">MAKE ROOM FOR ANOTHER READER</p><h2>Add a member</h2><p class="section-lead">Create an account for a reader. They can log in, save resources and plan their own study sessions.</p><p class="field-hint">Member accounts can use the library. Collection editing and member management stay with administrators.</p></div>
+              <div class="profile-editor">
+                <form id="member-form" novalidate>
+                  <div class="row g-3">
+                    <div class="col-12 col-md-6"><label for="member-name">Full name</label><input class="form-control" id="member-name" name="fullName" required minlength="2" maxlength="50" autocomplete="off"></div>
+                    <div class="col-12 col-md-6"><label for="member-email">Email address</label><input class="form-control" id="member-email" name="email" type="email" required maxlength="120" autocomplete="off"></div>
+                    <div class="col-12"><label for="member-field">Main interest</label><select class="form-select" id="member-field" name="field" required><option value="">Choose an interest</option><option value="technology">Technology &amp; mathematics</option><option value="social-science">Social sciences</option><option value="health">Health &amp; research</option></select></div>
+                    <div class="col-12 col-md-6"><label for="member-password">Practice password</label><input class="form-control" id="member-password" name="password" type="password" required minlength="12" maxlength="128" autocomplete="new-password" aria-describedby="member-password-hint"><button class="password-toggle" type="button" data-show-password="member-password" aria-pressed="false">Show password</button></div>
+                    <div class="col-12 col-md-6"><label for="member-confirm">Confirm password</label><input class="form-control" id="member-confirm" name="confirmPassword" type="password" required autocomplete="new-password"></div>
+                  </div>
+                  <p class="field-hint" id="member-password-hint">Use 12–128 characters with uppercase, lowercase, a number and a symbol. Share these practice credentials with the member; do not use a real password.</p>
+                  <button type="submit" class="btn btn-mint">Create member account <span aria-hidden="true">+</span></button>
+                  <p class="form-status" role="status" aria-live="polite"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-pad-sm" id="members">
+          <div class="container">
+            <h2>Member directory</h2>
+            <p class="muted-text">Accounts created in this browser. Passwords are never shown here.</p>
+            <div class="table-frame">
+              <table class="knowledge-table">
+                <caption>Registered library members</caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Role</th>
+                  </tr>
+                </thead>
+                <tbody id="member-directory"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      </div>
+      <dialog id="remove-resource-dialog" class="confirm-dialog" aria-labelledby="remove-resource-title">
+        <h2 id="remove-resource-title">Remove this resource?</h2>
+        <p id="remove-resource-name"></p>
+        <p>It will also leave any reading shelves in this browser.</p>
+        <div class="editor-actions">
+          <button class="btn btn-outline-mint" type="button" data-close-dialog>Keep resource</button>
+          <button class="btn btn-danger-soft" id="confirm-remove-resource" type="button">Remove resource</button>
+        </div>
+        <p class="dialog-status" role="status"></p>
+      </dialog>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2 class="h4">A little focus. Every day.</h2>
+          <p>A personal learning space by Alireza Rasuli. Explore six disciplines, keep a reading shelf and make time for your next idea.</p>
+        </div>
+        <div>
+          <h2 class="h5">Keep learning</h2>
+          <div class="footer-links">
+            <a href="subjects.html">Find a subject</a>
+            <a href="resources.html">Browse resources</a>
+            <a href="study-plan.html">Plan a session</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© 2026 Alireza Rasuli · Rasuli’s Knowledge Hub</p>
+        <p>Front-end learning project · Your data stays in this browser.</p>
+      </div>
+    </footer>
+    <div class="toast-message" id="toast-message" role="status" aria-live="polite"></div>
+    <button class="back-top" data-back-top type="button" aria-label="Back to top" hidden>↑</button>
+    <script defer src="vendor/jquery.min.js"></script>
+    <script defer src="js/photos.js?v=final-5"></script>
+    <script defer src="js/data.js?v=final-5"></script>
+    <script defer src="js/database.js?v=final-5"></script>
+    <script defer src="js/store.js?v=final-5"></script>
+    <script defer src="js/common.js?v=final-5"></script>
+    <script defer src="js/administrator.js?v=final-5"></script>
+    <script defer src="js/table-model.js?v=final-5"></script>
+    <script defer src="js/tables.js?v=final-5"></script>
+    <script defer src="js/midnight.js?v=final-5"></script>
+    <script defer src="js/motion.js?v=final-5"></script>
+    <script defer src="js/cinematic.js?v=final-5"></script>
+  </body>
+</html>
