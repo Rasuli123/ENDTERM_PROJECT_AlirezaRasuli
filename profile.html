@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Your saved learning profile, interests and progress at Rasuli’s Knowledge Hub.">
+    <title>Rasuli’s Knowledge Hub | Profile</title>
+    <script src="js/theme.js?v=final-5"></script>
+    <script src="js/tab-state.js?v=final-5"></script>
+    <script src="js/navigation.js?v=final-5"></script>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <meta name="theme-color" content="#090a0b">
+    <meta name="color-scheme" content="dark light">
+    <link rel="stylesheet" href="vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css?v=final-5">
+    <link rel="stylesheet" href="css/endterm.css?v=final-5">
+    <link rel="stylesheet" href="css/midnight.css?v=final-5">
+    <link rel="stylesheet" href="css/motion.css?v=final-5">
+    <link rel="stylesheet" href="css/cinematic.css?v=final-5">
+    <link rel="stylesheet" href="css/final.css?v=final-5">
+    <link rel="stylesheet" href="css/navigation.css?v=final-5">
+  </head>
+  <body data-page="profile">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+    <header class="site-header flat-header">
+      <nav class="site-nav flat-nav" aria-label="Main navigation">
+        <div class="container">
+          <div class="brand-row">
+            <a class="navbar-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-copy">Rasuli’s<span>KNOWLEDGE HUB</span>
+              </span>
+            </a>
+            <div class="nav-tools">
+              <a class="member-link" href="profile.html" data-member-only hidden>
+                <span class="member-dot" aria-hidden="true"></span>
+                <span data-user-first-name>My profile</span>
+              </a>
+              <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+                <span data-theme-icon aria-hidden="true">☾</span>
+                <span data-theme-label>Dark</span>
+              </button>
+              <button class="flat-signout" type="button" data-logout data-member-only hidden>Log out</button>
+            </div>
+          </div>
+          <ul class="page-nav" id="mainNav">
+            <li>
+              <a class="page-nav-link" href="index.html">Home</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="about.html">About</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="subjects.html">Subjects</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="resources.html">Resources</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="study-plan.html">Study plan</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="dashboard.html">Dashboard</a>
+            </li>
+            <li data-member-only hidden>
+              <a class="page-nav-link" href="profile.html" aria-current="page">Profile</a>
+            </li>
+            <li data-admin-only hidden>
+              <a class="page-nav-link" href="administrator.html">Administrator</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link" href="login.html">Log in</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link page-nav-signup" href="contact.html">Sign up</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="storage-warning" id="storage-warning" role="status" hidden>
+      <div class="container" data-storage-message></div>
+    </div>
+    <noscript>
+      <p class="storage-warning">Enable JavaScript to use accounts, saved resources and interactive features.</p>
+    </noscript>
+    <main class="page-shell" id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <p class="eyebrow" id="profile-kicker">YOUR OWN CHAPTER</p>
+          <h1 id="profile-title">A space that<br>
+            <em>remembers you.</em>
+          </h1>
+          <p id="profile-intro">Your details, your direction, your next small step.</p>
+        </div>
+      </section>
+      <section class="section-pad" id="profile-guest">
+        <div class="container">
+          <div class="empty-state">
+            <h2>Your profile is waiting.</h2>
+            <p>Log in to see your details and saved progress.</p>
+            <a class="btn btn-mint" href="login.html">Log in</a>
+          </div>
+        </div>
+      </section>
+      <div id="profile-content" hidden>
+        <section class="section-pad-sm">
+          <div class="container">
+            <p id="profile-welcome" class="status-success profile-welcome" role="status" hidden></p>
+            <div class="profile-layout">
+              <aside class="profile-card">
+                <span class="profile-avatar" id="profile-initials" aria-hidden="true"></span>
+                <p class="eyebrow" id="profile-role"></p>
+                <h2 id="profile-name"></h2>
+                <p id="profile-email" class="muted-text"></p>
+                <dl class="profile-facts">
+                  <div>
+                    <dt id="profile-interest-label">Main interest</dt>
+                    <dd id="profile-interest"></dd>
+                  </div>
+                  <div>
+                    <dt id="profile-count-label">Saved resources</dt>
+                    <dd id="profile-bookmarks">0</dd>
+                  </div>
+                  <div>
+                    <dt id="profile-secondary-label">Study time planned</dt>
+                    <dd id="profile-minutes">0 min</dd>
+                  </div>
+                </dl>
+                <a class="btn btn-outline-mint" href="dashboard.html" id="profile-dashboard-link">Open my dashboard →</a>
+              </aside>
+              <div class="profile-editor">
+                <p class="eyebrow">MAKE IT YOURS</p>
+                <h2 id="profile-editor-title">Your learning profile</h2>
+                <p class="muted-text" id="profile-editor-intro">Update your details and set one goal worth coming back to.</p>
+                <form id="profile-form" novalidate>
+                  <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                      <label for="profile-full-name">Full name</label>
+                      <input class="form-control" id="profile-full-name" name="fullName" required minlength="2" maxlength="50" autocomplete="name">
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="profile-email-input">Email address</label>
+                      <input class="form-control" id="profile-email-input" name="email" type="email" required maxlength="120" autocomplete="email">
+                    </div>
+                    <div class="col-12">
+                      <label for="profile-field" id="profile-field-label">Main interest</label>
+                      <select class="form-select" id="profile-field" name="field" required>
+                        <option value="">Choose your interest</option>
+                        <option value="technology">Technology &amp; mathematics</option>
+                        <option value="social-science">Social sciences</option>
+                        <option value="health">Health &amp; research</option>
+                      </select>
+                    </div>
+                    <div class="col-12">
+                      <label for="profile-goal-input"><span id="profile-goal-label">Learning goal</span> <span class="field-hint">(optional)</span>
+                      </label>
+                      <textarea class="form-control" id="profile-goal-input" name="goal" rows="3" maxlength="240" placeholder="For example: build and explain my first JavaScript project."></textarea>
+                      <p class="field-hint">Up to 240 characters. One clear goal is enough.</p>
+                    </div>
+                  </div>
+                  <button class="btn btn-mint mt-3" type="submit">Save profile <span aria-hidden="true">↗</span>
+                  </button>
+                  <p class="form-status" role="status" aria-live="polite"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section-pad-sm" id="staff-permissions" hidden>
+          <div class="container">
+            <p class="eyebrow">YOUR RESPONSIBILITIES</p><h2>Administrator workspace</h2>
+            <div class="library-guides admin-actions">
+              <article class="surface-card"><span class="guide-number" aria-hidden="true">01</span><h3>Collection editor</h3><p>Create, edit and remove library resources. Keep subjects, links and reading times useful.</p><a href="administrator.html#resource-editor" class="text-link">Open collection tools →</a></article>
+              <article class="surface-card"><span class="guide-number" aria-hidden="true">02</span><h3>Member coordinator</h3><p>Add member accounts and view the member directory. New accounts always receive the member role.</p><a href="administrator.html#add-member" class="text-link">Open member tools →</a></article>
+            </div>
+          </div>
+        </section>
+        <section class="section-pad-sm">
+          <div class="container">
+            <div class="privacy-card">
+              <h2 class="h4">Your browser, your workspace.</h2>
+              <p>Profile details, library records, your reading shelf and study sessions stay after a reload or a new visit. They are kept in this browser’s local database and saved JSON data. Clearing this website’s browser data removes both copies. They are not uploaded to a server or shared with another device.</p>
+              <p class="demo-note">Front-end demo: use a unique practice password, never a real password. Accounts and progress are saved only in this browser.</p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h2 class="h4">A little focus. Every day.</h2>
+          <p>A personal learning space by Alireza Rasuli. Explore six disciplines, keep a reading shelf and make time for your next idea.</p>
+        </div>
+        <div>
+          <h2 class="h5">Keep learning</h2>
+          <div class="footer-links">
+            <a href="subjects.html">Find a subject</a>
+            <a href="resources.html">Browse resources</a>
+            <a href="study-plan.html">Plan a session</a>
+          </div>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© 2026 Alireza Rasuli · Rasuli’s Knowledge Hub</p>
+        <p>Front-end learning project · Your data stays in this browser.</p>
+      </div>
+    </footer>
+    <div class="toast-message" id="toast-message" role="status" aria-live="polite"></div>
+    <button class="back-top" data-back-top type="button" aria-label="Back to top" hidden>↑</button>
+    <script defer src="vendor/jquery.min.js"></script>
+    <script defer src="js/photos.js?v=final-5"></script>
+    <script defer src="js/data.js?v=final-5"></script>
+    <script defer src="js/database.js?v=final-5"></script>
+    <script defer src="js/store.js?v=final-5"></script>
+    <script defer src="js/common.js?v=final-5"></script>
+    <script defer src="js/profile.js?v=final-5"></script>
+    <script defer src="js/table-model.js?v=final-5"></script>
+    <script defer src="js/tables.js?v=final-5"></script>
+    <script defer src="js/midnight.js?v=final-5"></script>
+    <script defer src="js/motion.js?v=final-5"></script>
+    <script defer src="js/cinematic.js?v=final-5"></script>
+  </body>
+</html>
