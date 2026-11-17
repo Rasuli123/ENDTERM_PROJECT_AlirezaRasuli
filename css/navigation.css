@@ -1,0 +1,65 @@
+/* Shared by every HTML page. The header stays steady while content crossfades. */
+@view-transition {
+  navigation: auto;
+}
+
+.site-header {
+  view-transition-name: hub-header;
+}
+
+::view-transition-group(root) {
+  animation-duration: 260ms;
+}
+
+::view-transition-old(root) {
+  animation: page-fade-out 180ms ease-out both;
+}
+
+::view-transition-new(root) {
+  animation: page-fade-in 260ms cubic-bezier(.2, .7, .2, 1) both;
+}
+
+::view-transition-group(hub-header),
+::view-transition-new(hub-header) {
+  animation: none;
+}
+
+::view-transition-old(hub-header) {
+  display: none;
+}
+
+html[data-page-entry="cross-document"] :is(.hero-intro h1, .page-hero h1, .auth-layout) {
+  animation: none;
+}
+
+/* Progressive enhancement for browsers without cross-document transitions. */
+html[data-navigation="fade"] :is(main, .site-footer) {
+  transition: opacity 140ms ease-out;
+}
+
+html[data-navigation="fade"] main {
+  animation: page-fade-in 260ms ease-out;
+}
+
+html.is-page-leaving :is(main, .site-footer) {
+  opacity: 0;
+}
+
+@keyframes page-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes page-fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  @view-transition { navigation: none; }
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+  html[data-navigation="fade"] main { animation: none; }
+  html.is-page-leaving :is(main, .site-footer) { opacity: 1; }
+}
