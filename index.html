@@ -1,31 +1,26 @@
 <!doctype html>
-
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <meta
-      content="Rasuli's Knowledge Hub connects students with organized learning pathways, academic resources and practical study systems."
-      name="description"
-    />
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Rasuli's Knowledge Hub connects students with organized learning pathways, academic resources and practical study systems." name="description">
     <title>Rasuli's Knowledge Hub | Home</title>
-
-    <link href="vendor/bootstrap.min.css" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <link
-      id="hub-favicon"
-      rel="icon"
-      type="image/x-icon"
-      href="images/favicon.ico"
-    />
-    <link href="css/endterm.css" rel="stylesheet" />
-    <meta name="theme-color" content="#090a0b" />
-    <meta name="color-scheme" content="dark" />
-    <link rel="preconnect" href="https://images.pexels.com" />
-    <link rel="preconnect" href="https://images.unsplash.com" />
-    <link rel="stylesheet" href="css/midnight.css" />
-    <link rel="stylesheet" href="css/motion.css" />
-    <link rel="stylesheet" href="css/cinematic.css" />
+    <script src="js/theme.js?v=final-5"></script>
+    <script src="js/tab-state.js?v=final-5"></script>
+    <script src="js/navigation.js?v=final-5"></script>
+    <link href="vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css?v=final-5" rel="stylesheet">
+    <link id="hub-favicon" rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link href="css/endterm.css?v=final-5" rel="stylesheet">
+    <meta name="theme-color" content="#090a0b">
+    <meta name="color-scheme" content="dark light">
+    <link rel="preconnect" href="https://images.pexels.com">
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="stylesheet" href="css/midnight.css?v=final-5">
+    <link rel="stylesheet" href="css/motion.css?v=final-5">
+    <link rel="stylesheet" href="css/cinematic.css?v=final-5">
+    <link rel="stylesheet" href="css/final.css?v=final-5">
+    <link rel="stylesheet" href="css/navigation.css?v=final-5">
   </head>
   <body data-page="index">
     <a class="skip-link" href="#main-content">Skip to main content</a>
@@ -33,32 +28,33 @@
       <nav class="site-nav flat-nav" aria-label="Main navigation">
         <div class="container">
           <div class="brand-row">
-            <a class="navbar-brand" href="index.html"
-              ><span class="brand-mark" aria-hidden="true"></span
-              ><span class="brand-copy"
-                >Rasuli’s<span>KNOWLEDGE HUB</span></span
-              ></a
-            ><button
-              class="flat-signout"
-              type="button"
-              data-logout
-              data-member-only
-              hidden
-            >
-              Sign out
-            </button>
+            <a class="navbar-brand" href="index.html">
+              <span class="brand-mark" aria-hidden="true"></span>
+              <span class="brand-copy">Rasuli’s<span>KNOWLEDGE HUB</span>
+              </span>
+            </a>
+            <div class="nav-tools">
+              <a class="member-link" href="profile.html" data-member-only hidden>
+                <span class="member-dot" aria-hidden="true"></span>
+                <span data-user-first-name>My profile</span>
+              </a>
+              <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" aria-label="Switch to light mode">
+                <span data-theme-icon aria-hidden="true">☾</span>
+                <span data-theme-label>Dark</span>
+              </button>
+              <button class="flat-signout" type="button" data-logout data-member-only hidden>Log out</button>
+            </div>
           </div>
           <ul class="page-nav" id="mainNav">
             <li>
-              <a
-                class="page-nav-link active"
-                href="index.html"
-                aria-current="page"
-                >Home</a
-              >
+              <a class="page-nav-link" href="index.html" aria-current="page">Home</a>
             </li>
-            <li><a class="page-nav-link" href="about.html">About</a></li>
-            <li><a class="page-nav-link" href="subjects.html">Subjects</a></li>
+            <li>
+              <a class="page-nav-link" href="about.html">About</a>
+            </li>
+            <li>
+              <a class="page-nav-link" href="subjects.html">Subjects</a>
+            </li>
             <li>
               <a class="page-nav-link" href="resources.html">Resources</a>
             </li>
@@ -68,11 +64,17 @@
             <li>
               <a class="page-nav-link" href="dashboard.html">Dashboard</a>
             </li>
-            <li><a class="page-nav-link" href="login.html">Log in</a></li>
-            <li>
-              <a class="page-nav-link page-nav-signup" href="contact.html"
-                >Sign up</a
-              >
+            <li data-member-only hidden>
+              <a class="page-nav-link" href="profile.html">Profile</a>
+            </li>
+            <li data-admin-only hidden>
+              <a class="page-nav-link" href="administrator.html">Administrator</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link" href="login.html">Log in</a>
+            </li>
+            <li data-guest-only>
+              <a class="page-nav-link page-nav-signup" href="contact.html">Sign up</a>
             </li>
           </ul>
         </div>
@@ -81,12 +83,12 @@
     <div class="storage-warning" id="storage-warning" role="status" hidden>
       <div class="container" data-storage-message></div>
     </div>
-    <noscript
-      ><div class="storage-warning">
+    <noscript>
+      <div class="storage-warning">
         Enable JavaScript to use accounts, filters and the planner. The original
         pages remain available below.
-      </div></noscript
-    >
+      </div>
+    </noscript>
     <main class="page-shell" id="main-content">
       <section class="hero-section midnight-hero">
         <span class="hero-light-sweep" aria-hidden="true"></span>
@@ -95,62 +97,63 @@
             <div class="hero-intro">
               <p class="eyebrow">A SPACE FOR CURIOUS MINDS</p>
               <h1>
-                A little focus.<br />A world of<br /><em>possibility.</em>
+                A little focus.<br>A world of<br>
+                <em>possibility.</em>
               </h1>
               <p class="hero-copy">
                 Your next chapter starts here. Find a subject you love, collect
                 the right resources, and make learning a daily habit.
               </p>
               <div class="hero-actions">
-                <a class="btn btn-mint" href="resources.html"
-                  >Explore the library <span aria-hidden="true">↗</span></a
-                ><a class="btn btn-outline-mint" href="study-plan.html"
-                  >Build a study plan</a
-                >
+                <a class="btn btn-mint" href="resources.html">Explore the library <span aria-hidden="true">↗</span>
+                </a>
+                <a class="btn btn-outline-mint" href="study-plan.html">Build a study plan</a>
               </div>
               <div class="hero-proof">
-                <span class="proof-line"></span
-                ><span>Six disciplines. Endless connections.</span>
+                <span class="proof-line"></span>
+                <span>Six disciplines. Endless connections.</span>
               </div>
             </div>
             <div class="hero-visual">
               <span class="hero-light-ring" aria-hidden="true"></span>
               <figure class="hero-photo">
-                <img
-                  src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=1600&q=85"
-                  alt="Warmly lit bookshelves in a spacious academic library"
-                  fetchpriority="high"
-                  width="900"
-                  height="1100"
-                />
+                <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85" alt="Warmly lit bookshelves in a spacious academic library" fetchpriority="high" width="900" height="1100">
                 <figcaption>
                   <span class="live-dot" aria-hidden="true"></span>YOUR PERSONAL
                   LEARNING SPACE
                 </figcaption>
               </figure>
               <div class="floating-note note-top">
-                <span class="note-icon" aria-hidden="true">↗</span
-                ><span
-                  ><small>A LITTLE EVERY DAY</small
-                  ><strong>Big ideas start small.</strong></span
-                >
+                <span class="note-icon" aria-hidden="true">↗</span>
+                <span>
+                  <small>A LITTLE EVERY DAY</small>
+                  <strong>Big ideas start small.</strong>
+                </span>
               </div>
-              <a class="floating-note note-bottom" href="study-plan.html"
-                ><span class="mini-progress" aria-hidden="true">25</span
-                ><span
-                  ><strong>Make time for your mind.</strong
-                  ><small>Start a 25-minute focus session →</small></span
-                ></a
-              >
+              <a class="floating-note note-bottom" href="study-plan.html">
+                <span class="mini-progress" aria-hidden="true">25</span>
+                <span>
+                  <strong>Make time for your mind.</strong>
+                  <small>Start a 25-minute focus session →</small>
+                </span>
+              </a>
             </div>
           </div>
           <div class="hero-stat-row">
-            <div><strong>06</strong><span>subject pathways</span></div>
-            <div><strong>14</strong><span>curated resources</span></div>
-            <div><strong>01</strong><span>place to find your focus</span></div>
-            <a href="subjects.html"
-              >Discover your next direction <span aria-hidden="true">↓</span></a
-            >
+            <div>
+              <strong>06</strong>
+              <span>subject pathways</span>
+            </div>
+            <div>
+              <strong data-resource-total>14</strong>
+              <span>curated resources</span>
+            </div>
+            <div>
+              <strong>01</strong>
+              <span>place to find your focus</span>
+            </div>
+            <a href="subjects.html">Discover your next direction <span aria-hidden="true">↓</span>
+            </a>
           </div>
         </div>
       </section>
@@ -159,13 +162,7 @@
           <div class="row g-4">
             <div class="col-12 col-md-6 col-xl-4">
               <article class="surface-card feature-card p-4">
-                <img
-                  alt="Programming code on a screen"
-                  class="feature-photo"
-                  decoding="async"
-                  loading="lazy"
-                  src="https://images.pexels.com/photos/1921326/pexels-photo-1921326.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-                />
+                <img alt="Programming code on a screen" class="feature-photo" decoding="async" loading="lazy" src="https://images.pexels.com/photos/1921326/pexels-photo-1921326.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
                 <div class="feature-number">01</div>
                 <h2 class="h4">Find a pathway</h2>
                 <p class="muted-text mb-0">
@@ -176,13 +173,7 @@
             </div>
             <div class="col-12 col-md-6 col-xl-4">
               <article class="surface-card feature-card p-4">
-                <img
-                  alt="Library shelves and reading space"
-                  class="feature-photo"
-                  decoding="async"
-                  loading="lazy"
-                  src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85"
-                />
+                <img alt="Library shelves and reading space" class="feature-photo" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&amp;fit=crop&amp;w=1600&amp;q=85">
                 <div class="feature-number">02</div>
                 <h2 class="h4">Use proven resources</h2>
                 <p class="muted-text mb-0">
@@ -193,13 +184,7 @@
             </div>
             <div class="col-12 col-md-6 col-xl-4">
               <article class="surface-card feature-card p-4">
-                <img
-                  alt="Students researching together"
-                  class="feature-photo"
-                  decoding="async"
-                  loading="lazy"
-                  src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-                />
+                <img alt="Students researching together" class="feature-photo" decoding="async" loading="lazy" src="https://images.pexels.com/photos/8199762/pexels-photo-8199762.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
                 <div class="feature-number">03</div>
                 <h2 class="h4">Build a routine</h2>
                 <p class="muted-text mb-0">
@@ -216,12 +201,7 @@
           <div class="row g-5 align-items-center">
             <div class="col-12 col-lg-6">
               <div class="image-panel">
-                <img
-                  alt="Student working at a desk with a laptop"
-                  decoding="async"
-                  loading="lazy"
-                  src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400"
-                />
+                <img alt="Student working at a desk with a laptop" decoding="async" loading="lazy" src="https://images.pexels.com/photos/7777691/pexels-photo-7777691.jpeg?auto=compress&amp;cs=tinysrgb&amp;w=1400">
               </div>
             </div>
             <div class="col-12 col-lg-6">
@@ -288,60 +268,39 @@
     <footer class="site-footer">
       <div class="container footer-grid">
         <div>
-          <h2>Rasuli’s Knowledge Hub</h2>
-          <p class="muted-text">
-            A little curiosity. A clear direction.<br />A better way to keep
-            learning.
-          </p>
+          <h2 class="h4">A little focus. Every day.</h2>
+          <p>A personal learning space by Alireza Rasuli. Explore six disciplines, keep a reading shelf and make time for your next idea.</p>
         </div>
         <div>
-          <h2 class="h5">Find your next step</h2>
+          <h2 class="h5">Keep learning</h2>
           <div class="footer-links">
-            <a href="subjects.html">Explore subjects</a
-            ><a href="resources.html">Resource library</a
-            ><a href="study-plan.html">Make a study plan</a>
-          </div>
-        </div>
-        <div>
-          <h2 class="h5">Your learning space</h2>
-          <div class="footer-links">
-            <a href="contact.html">Create an account</a
-            ><a href="dashboard.html">My reading shelf</a>
+            <a href="subjects.html">Find a subject</a>
+            <a href="resources.html">Browse resources</a>
+            <a href="study-plan.html">Plan a session</a>
           </div>
         </div>
       </div>
       <div class="container footer-bottom">
-        <span>© 2026 Rasuli’s Knowledge Hub · Created by Alireza Rasuli</span>
+        <p>© 2026 Alireza Rasuli · Rasuli’s Knowledge Hub</p>
+        <p>Front-end learning project · Your data stays in this browser.</p>
       </div>
     </footer>
-
-    <div
-      aria-live="polite"
-      class="toast-message"
-      id="toast-message"
-      role="status"
-    ></div>
-    <button
-      aria-label="Back to top"
-      class="back-top"
-      data-back-top=""
-      hidden=""
-      type="button"
-    >
+    <div aria-live="polite" class="toast-message" id="toast-message" role="status"></div>
+    <button aria-label="Back to top" class="back-top" data-back-top="" hidden="" type="button">
       ↑
     </button>
-    <script defer="" src="vendor/jquery.min.js"></script>
-
-    <script defer src="js/photos.js"></script>
-    <script defer src="js/data.js"></script>
-    <script defer="" src="js/store.js"></script>
-    <script defer="" src="js/common.js"></script>
-    <script defer="" src="js/resources.js"></script>
-    <script defer="" src="js/auth.js"></script>
-    <script defer src="js/table-model.js"></script>
-    <script defer src="js/tables.js"></script>
-    <script defer src="js/midnight.js"></script>
-    <script defer src="js/motion.js"></script>
-    <script defer src="js/cinematic.js"></script>
+    <script defer src="vendor/jquery.min.js"></script>
+    <script defer src="js/photos.js?v=final-5"></script>
+    <script defer src="js/data.js?v=final-5"></script>
+    <script defer src="js/database.js?v=final-5"></script>
+    <script defer src="js/store.js?v=final-5"></script>
+    <script defer src="js/common.js?v=final-5"></script>
+    <script defer src="js/resources.js?v=final-5"></script>
+    <script defer src="js/auth.js?v=final-5"></script>
+    <script defer src="js/table-model.js?v=final-5"></script>
+    <script defer src="js/tables.js?v=final-5"></script>
+    <script defer src="js/midnight.js?v=final-5"></script>
+    <script defer src="js/motion.js?v=final-5"></script>
+    <script defer src="js/cinematic.js?v=final-5"></script>
   </body>
 </html>
